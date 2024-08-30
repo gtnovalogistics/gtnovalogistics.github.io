@@ -75,7 +75,7 @@ body {
 }
 
 /* desktop */
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 928px) {
 
     .header-contacts-container{
         display: flex;
@@ -204,7 +204,7 @@ main {
     }
 }
 
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 928px) {
     .contact-us{
         display:none;
     }
