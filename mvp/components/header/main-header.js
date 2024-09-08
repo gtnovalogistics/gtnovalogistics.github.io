@@ -15,6 +15,10 @@ template.innerHTML = `
             height: 6rem;                
         }
 
+        img {
+            width: clamp(120px,2vw,167px);
+        }
+
         menu {
             display: flex;
             gap: 2rem;
@@ -81,7 +85,7 @@ template.innerHTML = `
             font-family: helveticaneue;
             font-weight: 700;
             color: var(--violet);
-            margin-left: 2rem;
+            margin-left: clamp(1rem, 2vw, 2rem);;
             cursor: pointer;
         }
         

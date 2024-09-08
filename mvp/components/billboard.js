@@ -80,7 +80,7 @@ template.innerHTML = `
             border-radius: 5px;      
             text-decoration: none;
             border: 2px solid var(--violet);
-            padding: 0.5rem 1.5rem;
+            padding: 0.7rem clamp(0.5rem, 6.4vw,1.5rem);
         }
 
         .register a:first-child {
