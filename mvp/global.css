@@ -26,6 +26,13 @@
 }
 
 @font-face {
+  font-family: poppins-light;
+  src: url("./fonts/poppins/Poppins-Light.ttf");
+  font-display: fallback;
+  font-weight: 400;
+}
+
+@font-face {
   font-family: helveticaneue;
   src: url("./fonts/helveticaneue/HelveticaNeueNormal.otf");
   font-display: fallback;
