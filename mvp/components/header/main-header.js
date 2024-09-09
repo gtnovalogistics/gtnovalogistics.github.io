@@ -15,10 +15,6 @@ template.innerHTML = `
             height: 6rem;                
         }
 
-        img {
-            width: clamp(120px,2vw,167px);
-        }
-
         menu {
             display: flex;
             gap: 2rem;
@@ -50,10 +46,12 @@ template.innerHTML = `
             display: flex;
             align-items: center;
             gap: 5px;
+            margin-left: 4px;
             
 
             a {
                 font-family: helveticaneue;
+                font-size: clamp(0.8rem,4vw,1rem);
                 font-weight: 700;
                 text-decoration: none;  
                 
@@ -74,7 +72,7 @@ template.innerHTML = `
             background-color: white;  
         }
 
-        @container (width < 600px) {
+        @media screen and (width < 506px) {
             .secondary {
                 display: none;
             }
@@ -85,7 +83,7 @@ template.innerHTML = `
             font-family: helveticaneue;
             font-weight: 700;
             color: var(--violet);
-            margin-left: clamp(1rem, 2vw, 2rem);;
+            margin-left: clamp(0.1rem, 2vw, 2rem);
             cursor: pointer;
         }
         
