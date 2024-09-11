@@ -1,3 +1,5 @@
+import {evtOpenSignUp} from "../events/sign-up.js";
+
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
@@ -137,7 +139,7 @@ template.innerHTML = `
                 </div> 
 
                 <div class="register">
-                    <a href="#">Register</a>
+                    <a href="#" id="btnRegister">Register</a>
                     <a href="#">View Rates</a>
                 </div>
             </div>
@@ -152,6 +154,12 @@ class WcBillboard extends HTMLElement {
         super();
         const shadow = this.attachShadow({ mode: 'open' });
         shadow.appendChild(template.content.cloneNode(true));        
+    }
+
+    connectedCallback() {
+        this.shadowRoot.getElementById('btnRegister').addEventListener('click', () => {
+            document.dispatchEvent(evtOpenSignUp.event);
+        });
     }
 }
 

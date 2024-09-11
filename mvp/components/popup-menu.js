@@ -9,6 +9,7 @@ template.innerHTML = `
             text-decoration: none;
             font-family: helveticaneue;
             font-weight: 700;
+            position: sticky;
         }
 
         section {

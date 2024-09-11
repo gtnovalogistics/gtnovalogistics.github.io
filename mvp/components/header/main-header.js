@@ -1,4 +1,5 @@
 import {evtHamburgerMenu} from "../../events/popup-menu.js";
+import {evtOpenSignUp} from "../../events/sign-up.js";
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -107,8 +108,8 @@ template.innerHTML = `
         </menu>
         <div class="login-signup">
             <a href="#" class="primary">LOGIN</a>
-            <a href="#" class="secondary">SIGN UP</a>
-            <div class="hamburger-button">&#x2630;</div>
+            <a href="#" class="secondary" id="btnSignup">SIGN UP</a>
+            <div class="hamburger-button" id="btnHamburger">&#x2630;</div>
         </div>
     </section>
 
@@ -121,14 +122,22 @@ class WcMainHeader extends HTMLElement {
         shadow.appendChild(template.content.cloneNode(true));        
     }
 
-    handleEvent() {
-        document.dispatchEvent(evtHamburgerMenu.event);
+    handleEvent(evt) {
+        switch(evt.target.id){
+            case 'btnHamburger': document.dispatchEvent(evtHamburgerMenu.event); break;
+            case 'btnSignup': document.dispatchEvent(evtOpenSignUp.event); break;
+        }
+        
     }
 
     connectedCallback() {
 
-        this.shadowRoot.querySelector('.hamburger-button')
+        this.shadowRoot.getElementById('btnHamburger')
             .addEventListener('click', this);
+
+        this.shadowRoot.getElementById('btnSignup')
+            .addEventListener('click', this);    
+
     }
 }
 

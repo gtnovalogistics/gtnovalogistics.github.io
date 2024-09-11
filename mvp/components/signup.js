@@ -1,13 +1,35 @@
+import {evtCloseSignUp} from "../events/sign-up.js";
+import {registerProfile} from "../services/sign-up.js";
+import {evtOpenSignUpConfirmation} from "../events/sign-up-confirmation.js";
+
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
         :host {
-            border-radius: 15px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+
+        img {
+            cursor: pointer;
         }
 
         .container {
             padding: 3rem clamp(2px, 2vw ,3rem);
+            width: 98%;
             max-width: 890px;
+            border-radius: 15px;
+            background-color: white;
         }
 
         form {
@@ -127,9 +149,9 @@ template.innerHTML = `
     <section class="container">
         <header>
             <div>Sign Up</div>
-            <img src="images/close.png" alt="close" width="24" height="24">
+            <img src="images/close.png" alt="close" width="24" height="24" id="btnClose">
         </header>
-        <form action="submit">
+        <form>
             <div class="adaptive"> 
                 <div>
                     <label for="firstname">*First Name</label>
@@ -207,11 +229,74 @@ template.innerHTML = `
     </section>
 `;
 
+const getProfile = (form) => {
+    return {
+        'firstname': form.firstname.value,
+        'lastname' : form.lastname.value,
+        'email' : form.email.value,
+        'mobile' : form.mobile.value,
+        'password' : form.password.value,
+        'confirmPassword' : form['confirm-password'].value,
+        'tin' : form.tin.value,
+        'company' : form.company.value,
+        'reference' : form.reference.value,
+        'isagreed' : form.agree.checked        
+    }
+}
+
+const clear = (form) => {
+    form.firstname.value = '';
+    form.lastname.value = '';
+    form.email.value = '';
+    form.mobile.value = '';
+    form.password.value = '';
+    form['confirm-password'].value = '';
+    form.tin.value = '';
+    form.company.value = '';
+    form.reference.value = 'Select';
+    form.agree.checked = false; 
+}
+
+const closePopup = (form) => {
+    clear(form);
+    document.dispatchEvent(evtCloseSignUp.event);
+}
+
 class WcSignup extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({ mode: 'open' });
         shadow.appendChild(template.content.cloneNode(true));        
+    }
+
+    handleEvent(evt) {
+        const form = this.shadowRoot.querySelector('form');
+
+        if(evt.type === 'click' && evt.target.id === 'btnClose'){
+            closePopup(form);
+        }
+
+        if(evt.type === 'click' && evt.target.id === 'btnSubmit'){
+            const profile = getProfile(form);
+            registerProfile(profile);
+            evt.preventDefault();
+
+            closePopup(form);
+            // open the confirmation popup
+            evtOpenSignUpConfirmation.detail = profile;
+            document.dispatchEvent(evtOpenSignUpConfirmation.event);
+        }
+
+    }
+
+    connectedCallback() {
+        const form = this.shadowRoot.querySelector('form');
+
+        this.shadowRoot.getElementById('btnClose')
+            .addEventListener('click', this);
+
+        this.shadowRoot.getElementById('btnSubmit')
+            .addEventListener('click', this);
     }
 }
 

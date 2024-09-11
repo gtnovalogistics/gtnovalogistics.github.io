@@ -77,6 +77,10 @@
     position: absolute;
   }
 
+  .noscrollY {
+    overflow-y: hidden;
+  }
+
 
 /*--------*/  
 /* header */
@@ -103,5 +107,6 @@ header {
   width: 100vw;
   z-index: 5;
 }
+
 
 
