@@ -92,6 +92,13 @@ template.innerHTML = `
             border: none;
         }
 
+        .errors {
+            font-family: helveticaneue;
+            font-weight: 400;
+            padding: 0.5rem;
+            background-color: red;
+            color: var(--violet);      
+        }
 
 
         input{
@@ -152,6 +159,10 @@ template.innerHTML = `
             <div>Sign Up</div>
             <img src="images/close.png" alt="close" width="24" height="24" id="btnClose">
         </header>
+        <section id="errors" class="errors">
+            <ul>
+            </ul>
+        </section>
         <form>
             <div class="adaptive"> 
                 <div>
@@ -166,7 +177,7 @@ template.innerHTML = `
 
                 <div>
                     <label for="email">*Email Address</label>
-                    <input type="text" name="email" id="email" required placeholder="sample@email.com">
+                    <input type="email" name="email" id="email" required placeholder="sample@email.com">
                 </div>                 
 
                 <div>
@@ -263,6 +274,25 @@ const closePopup = (form) => {
     document.dispatchEvent(evtCloseSignUp.event);
 }
 
+const handleErrors = (errors, container) => {
+
+    container.classList.remove('no-display');
+    const ul = container.querySelector('ul');
+    ul.innerHTML = '';
+    errors.forEach(error => {
+        const li = document.createElement('li');
+        li.textContent = error;
+        ul.appendChild(li);
+    })
+
+    container.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+}
+
+const clearErrors = (container) => {
+    container.classList.add('no-display');
+    ul.innerHTML = '';
+}
+
 class WcSignup extends HTMLElement {
     constructor() {
         super();
@@ -272,16 +302,27 @@ class WcSignup extends HTMLElement {
 
     handleEvent(evt) {
         const form = this.shadowRoot.querySelector('form');
+        const errorsSection = this.shadowRoot.getElementById('errors');
 
         if(evt.type === 'click' && evt.target.id === 'btnClose'){
+            clearErrors(errorsSection);
             closePopup(form);
         }
 
         if(evt.type === 'click' && evt.target.id === 'btnSubmit'){
-            const profile = getProfile(form);
-            registerProfile(profile);
+
             evt.preventDefault();
 
+            const profile = getProfile(form);
+            const result = registerProfile(profile);
+
+            const container = this.shadowRoot.getElementById('errors');
+            if(result.status === 'error'){
+                handleErrors(result.errors, container);
+                return;
+            }
+
+            clearErrors(errorsSection);
             closePopup(form);
             // open the confirmation popup
             evtOpenSignUpConfirmation.detail = profile;
