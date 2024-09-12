@@ -18,16 +18,16 @@ const openSignUpConfirmationhandler = (evt) => {
         //signupConfirmation.setAttribute('account', detail.account);
 
         signupConfirmation.classList.toggle(noDisplay);
-        if(!signupConfirmation.classList.contains(noDisplay)) {         
-            document.body.classList.add('noscrollY');   
-        }
+        //if(!signupConfirmation.classList.contains(noDisplay)) {         
+        //    document.body.classList.add('noscrollY');   
+        //}
     }
 };
 
 const closeSignUpConfirmationHandler = (evt) => {
     if(signupConfirmation) {
         signupConfirmation.classList.add(noDisplay);
-        document.body.classList.remove('noscrollY');
+        //document.body.classList.remove('noscrollY');
     }
 };
 

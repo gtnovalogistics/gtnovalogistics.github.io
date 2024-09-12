@@ -12,7 +12,7 @@ template.innerHTML = `
             width: 100%;
             height: 100%;
 
-            display: flex;
+            display: grid;
             align-items: center;
             justify-content: center;
 
@@ -26,7 +26,6 @@ template.innerHTML = `
 
         .container {
             padding: 3rem clamp(2px, 2vw ,3rem);
-            width: 98%;
             max-width: 890px;
             border-radius: 15px;
             background-color: white;
@@ -45,7 +44,7 @@ template.innerHTML = `
 
             font-family: poppins;
             font-weight: 700;
-            font-size: 3rem;
+            font-size: clamp(2rem,4vw,3rem);
             color: var(--violet);
         }
 
@@ -74,7 +73,7 @@ template.innerHTML = `
         label {
             font-family: helveticaneue;
             font-weight: 400;
-            font-size: 1.3rem;       
+            font-size: clamp(1rem,4vw,1.3rem);       
         }
         
         #btnSubmit {
@@ -96,7 +95,7 @@ template.innerHTML = `
         input{
             font-family: helveticaneue;
             font-weight: 400;
-            font-size: 1.2rem;
+            font-size: clamp(1rem,4vw,1.2rem);
             padding: 1rem 0;
             border-radius: 5px;
             border: 2px solid lightgray;
@@ -106,7 +105,7 @@ template.innerHTML = `
         select {
             font-family: helveticaneue;
             font-weight: 400;
-            font-size: 1.5rem;
+            font-size: clamp(1rem,4vw,1.2rem);
             line-height: 2rem;
             border-radius: 5px;
             border: 2px solid lightgray;   

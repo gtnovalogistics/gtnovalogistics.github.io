@@ -14,7 +14,7 @@ template.innerHTML = `
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 5;
 
-            display: flex;
+            display: grid;
             align-items: center;
             justify-content: center;
             overflow: scroll;

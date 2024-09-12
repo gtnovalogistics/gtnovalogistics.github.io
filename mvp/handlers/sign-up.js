@@ -9,16 +9,16 @@ const signup = d.getElementById('signup');
 const openSignUphandler = (evt) => {
     if(signup) {
         signup.classList.toggle(noDisplay);
-        if(!signup.classList.contains(noDisplay)) {
-            document.body.classList.add('noscrollY');   
-        }
+        //if(!signup.classList.contains(noDisplay)) {
+        //    document.body.classList.add('noscrollY');   
+        //}
     }
 };
 
 const closeSignUpHandler = (evt) => {
     if(signup) {
         signup.classList.add(noDisplay);
-        document.body.classList.remove('noscrollY');
+        //document.body.classList.remove('noscrollY');
     }
 };
 
