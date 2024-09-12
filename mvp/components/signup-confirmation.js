@@ -5,20 +5,19 @@ template.innerHTML = `
     <style>
         :host {
         
-            position: absolute;
+            position: fixed;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
+            overflow-y: auto;
 
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 5;
 
             display: grid;
             align-items: center;
-            justify-content: center;
-            overflow: scroll;
-            
+            justify-content: center;            
         }
 
         .container {
