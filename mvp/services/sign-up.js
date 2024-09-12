@@ -63,6 +63,16 @@ const validationErrors = (profile) => {
         errors.push("Please agree to the terms of service.");
     }
 
+    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (!profile.email.match(validRegex)) {
+        errors.push("Email address is not valid.");
+    }
+
+    const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if (!profile.mobile.match(regex)) {
+        errors.push("Mobile number is not valid.");
+    }
+
     return errors;
 
 }
