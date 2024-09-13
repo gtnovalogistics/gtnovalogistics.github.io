@@ -15,7 +15,7 @@ const openSignUpConfirmationhandler = (evt) => {
         signupConfirmation.setAttribute('lastname', detail.lastname);
         signupConfirmation.setAttribute('email', detail.email);
         signupConfirmation.setAttribute('mobile', detail.mobile);
-        //signupConfirmation.setAttribute('account', detail.account);
+        signupConfirmation.setAttribute('account', detail.accountnumber);
 
         signupConfirmation.classList.toggle(noDisplay);
         //if(!signupConfirmation.classList.contains(noDisplay)) {         

@@ -152,6 +152,10 @@ template.innerHTML = `
             }
          }
 
+         .no-display {
+            display: none;
+         }
+
     </style>
     
     <section class="container">
@@ -159,7 +163,7 @@ template.innerHTML = `
             <div>Sign Up</div>
             <img src="images/close.png" alt="close" width="24" height="24" id="btnClose">
         </header>
-        <section id="errors" class="errors">
+        <section id="errors" class="errors no-display">
             <ul>
             </ul>
         </section>
@@ -290,7 +294,7 @@ const handleErrors = (errors, container) => {
 
 const clearErrors = (container) => {
     container.classList.add('no-display');
-    ul.innerHTML = '';
+    container.querySelector('ul').innerHTML = '';
 }
 
 class WcSignup extends HTMLElement {
@@ -300,7 +304,7 @@ class WcSignup extends HTMLElement {
         shadow.appendChild(template.content.cloneNode(true));        
     }
 
-    handleEvent(evt) {
+    async handleEvent(evt) {
         const form = this.shadowRoot.querySelector('form');
         const errorsSection = this.shadowRoot.getElementById('errors');
 
@@ -314,7 +318,7 @@ class WcSignup extends HTMLElement {
             evt.preventDefault();
 
             const profile = getProfile(form);
-            const result = registerProfile(profile);
+            const result = await registerProfile(profile);
 
             const container = this.shadowRoot.getElementById('errors');
             if(result.status === 'error'){
@@ -324,6 +328,7 @@ class WcSignup extends HTMLElement {
 
             clearErrors(errorsSection);
             closePopup(form);
+            
             // open the confirmation popup
             evtOpenSignUpConfirmation.detail = profile;
             document.dispatchEvent(evtOpenSignUpConfirmation.event);

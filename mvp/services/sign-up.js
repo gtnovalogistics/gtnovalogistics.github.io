@@ -16,7 +16,7 @@
 //  companyname
 //  reference
 //  isagreed
-const registerProfile = (profile) => {
+const registerProfile = async (profile) => {
 
     const errors = validationErrors(profile);
     if(errors.length > 0){
@@ -26,10 +26,70 @@ const registerProfile = (profile) => {
         };
     }
 
+    const counter = await getNextCounter();
+    const accountNumber = await getAccountNumber(counter);
+
+    profile.accountnumber = accountNumber;
+    await saveProfile(profile);
+
+
     return {
         status: 'ok'
     };
 
+}
+
+async function saveProfile(profile) {
+    const url = 'https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/user';
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(profile)
+      });
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+}
+
+async function getNextCounter(){
+    const url = 'https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/counter';
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const jsonresponse = await response.json();
+      const body = JSON.parse(jsonresponse.body);
+      return body.next;
+
+    } catch (error) {
+      console.error(error.message);
+    }    
+}
+
+async function getAccountNumber(counter) {
+    const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/account-number?counter=${counter}`;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const jsonresponse = await response.json();
+      const body = JSON.parse(jsonresponse.body);
+      return body.accountnumber;
+
+    } catch (error) {
+      console.error(error.message);
+    }      
 }
 
 const validationErrors = (profile) => {

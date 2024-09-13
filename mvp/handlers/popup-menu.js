@@ -30,4 +30,3 @@ const resizeHandler = (evt) => {
         toggleResizeHandler();
     }
 };
-//window.addEventListener('resize', resizeHandler);
