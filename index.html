@@ -3,91 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>GTNova Logistics</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="global.css">
+
+    <script src="components/header/socials-contacts.js" type="module"></script>
+    <script src="components/header/main-header.js" type="module"></script>
+    <script src="components/popup-menu.js" type="module" async></script>
+    <script src="components/billboard.js" type="module"></script>
+    <script src="components/services.js" type="module"></script>
+    <script src="components/signup.js" type="module"></script>
+    <script src="components/signup-confirmation.js" type="module"></script>
+
+    <script src="./events/popup-menu.js" type="module"></script>
+    <script src="./handlers/popup-menu.js" type="module"></script>
+
+    <script src="./events/sign-up.js" type="module"></script>
+    <script src="./handlers/sign-up.js" type="module"></script>
+
+    <script src="./events/sign-up-confirmation.js" type="module"></script>
+    <script src="./handlers/sign-up-confirmation.js" type="module"></script>
 </head>
 <body>
-    
-
-    <header class="main-header">
-
-        <div class="header-contacts-container">
-            <div class="header-contact">
-                <img src="images/phone.svg" width="20px" alt="phone icon"/>
-                <span>+592 681 2800</span>
-            </div>
-            <div class="header-contact">
-                <img src="images/iphone.svg" width="20px" alt="phone icon"/>
-                <span>+1 647 997 2800</span>
-            </div>
-            <a href="mailto:francis.cumberbatch@gtnovatechnology.com" class="header-contact send-email">
-                <img src="images/email.svg" width="20px" alt="email icon"/>
-                <span>francis.cumberbatch@gtnovatechnology.com</span>
-            </a>
-            <div class="header-contact">
-                <img src="images/pin.svg" width="20px" alt="phone icon"/>
-                <span>125 'C' Barrack Street, Kingston, Georgetown, Guyana</span>
-            </div>            
-
-        </div>
-
-        <div class="header-navigation">
-            <img src="images/logo_purple.jpg" alt="gtnova logo">
-
-            <div class="motto">Your Supply Chain Partner</div>
-        </div>
-        
+    <header>
+        <wc-socials-contacts class="socials-contacts"></wc-socials-contacts>
+        <wc-main-header></wc-main-header>
+        <wc-popup-menu id="popup-menu" class="popup-menu no-display"></wc-popup-menu>
     </header>
-    
+
     <main>
-        <div class="main-title">Available Services</div>
-        <ul class="service-list">
-            <li>
-                <img src="images/shopping_cart.svg" alt="Order Fulfillment">
-                <span>Order Fulfillment</span>
-            </li>
-            <li>
-                <img src="images/inventory.svg" alt="Inventory Management">
-                <span>Inventory Management</span>
-            </li>
-            <li>
-                <img src="images/returns.svg" alt="Returns Processing">
-                <span>Returns Processing</span>
-            <li>
-                <img src="images/package.svg" alt="Packaging Design and Manufacturing">
-                <span>Packaging Design and Manufacturing</span>
-            </li>
-            <li>
-                <img src="images/tracking.svg" alt="Tracking and Monitoring">
-                <span>Tracking and Monitoring</span>
-            </li>
-            <li>
-                <img src="images/customs_clearance.svg" alt="Customs Clearance Assistance">
-                <span>Customs Clearance Assistance</span>
-            </li>
-        </ul>
+        <wc-billboard></wc-billboard>
+        <wc-services></wc-services>
+        <wc-signup class="no-display" id="signup"></wc-signup>
+        
+        <wc-signup-confirmation class="no-display" id="signup-confirmation"></wc-signup-confirmation>
+    
     </main>
 
-    <div class="contact-us">
-        <header>Contact Us</header>
-        <div class="header-contact">
-            <img src="images/phone.svg" width="20px" alt="phone icon"/>
-            <span>+592 681 2800</span>
-        </div>
-        <div class="header-contact">
-            <img src="images/iphone.svg" width="20px" alt="phone icon"/>
-            <span>+1 647 997 2800</span>
-        </div>        
-        <a href="mailto:francis.cumberbatch@gtnovatechnology.com" class="header-contact send-email">
-            <img src="images/email.svg" width="20px" alt="email icon"/>
-            <span>francis.cumberbatch@gtnovatechnology.com</span>
-        </a>
-        <div class="header-contact">
-            <img src="images/pin.svg" width="20px" alt="phone icon"/>
-            <span>125 'C' Barrack Street, Kingston, Georgetown, Guyana</span>
-        </div>          
-    </div>
+    <footer>
 
-
+    </footer>
 </body>
 </html>
