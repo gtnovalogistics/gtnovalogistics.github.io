@@ -30,12 +30,7 @@ const registerProfile = async (profile) => {
     const accountNumber = await getAccountNumber(counter);
 
     profile.accountnumber = accountNumber;
-    await saveProfile(profile);
-
-
-    return {
-        status: 'ok'
-    };
+    return await saveProfile(profile);
 
 }
 
@@ -54,8 +49,7 @@ async function saveProfile(profile) {
         throw new Error(`Response status: ${response.status}`);
       }
 
-      const json = await response.json();
-      console.log(json);
+      return await response.json();
 
     } catch (error) {
       console.error(error.message);
