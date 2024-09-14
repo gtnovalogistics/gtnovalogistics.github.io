@@ -327,7 +327,7 @@ class WcSignup extends HTMLElement {
                 return;
             }
 
-            await sendEmail(profile.email, result.accountnumber);
+            await sendEmail(profile.email, profile.accountnumber);
 
             clearErrors(errorsSection);
             closePopup(form);
