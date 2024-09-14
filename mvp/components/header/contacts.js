@@ -25,7 +25,7 @@ template.innerHTML = `
 
     <div>
         <img src="images/phone.png" width="16" height="16" alt="call us">
-        +59 26812800
+        +592 227 6975
     </div>
 
 `;

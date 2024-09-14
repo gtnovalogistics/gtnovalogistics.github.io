@@ -1,5 +1,6 @@
 import {evtCloseSignUp} from "../events/sign-up.js";
 import {registerProfile} from "../services/sign-up.js";
+import {sendEmail} from "../services/send-email.js";
 import {evtOpenSignUpConfirmation} from "../events/sign-up-confirmation.js";
 
 const template = document.createElement('template');
@@ -325,6 +326,8 @@ class WcSignup extends HTMLElement {
                 handleErrors(result.errors, container);
                 return;
             }
+
+            await sendEmail(profile.email, result.accountnumber);
 
             clearErrors(errorsSection);
             closePopup(form);
