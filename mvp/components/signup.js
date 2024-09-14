@@ -252,7 +252,7 @@ const getProfile = (form) => {
         'email' : form.email.value,
         'mobile' : form.mobile.value,
         'password' : form.password.value,
-        'confirmPassword' : form['confirm-password'].value,
+        'confirmpassword' : form['confirm-password'].value,
         'tin' : form.tin.value,
         'company' : form.company.value,
         'reference' : form.reference.value,
@@ -328,7 +328,7 @@ class WcSignup extends HTMLElement {
 
             clearErrors(errorsSection);
             closePopup(form);
-            
+
             // open the confirmation popup
             evtOpenSignUpConfirmation.detail = profile;
             document.dispatchEvent(evtOpenSignUpConfirmation.event);

@@ -53,6 +53,10 @@ async function saveProfile(profile) {
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
+
+      const json = await response.json();
+      console.log(json);
+
     } catch (error) {
       console.error(error.message);
     }
@@ -95,7 +99,7 @@ async function getAccountNumber(counter) {
 const validationErrors = (profile) => {
     let errors = [];
     
-    if( ! profile.password || ! profile.confirmPassword || profile.password !== profile.confirmPassword){
+    if( ! profile.password || ! profile.confirmpassword || profile.password !== profile.confirmpassword){
         errors.push("Passwords do not match.");
     }
 
