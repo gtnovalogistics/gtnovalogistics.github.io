@@ -327,6 +327,9 @@ class WcSignup extends HTMLElement {
 
         if(evt.type === 'click' && evt.target.id === 'btnSubmit'){
 
+            // prevent the form from submitting multiple times
+            evt.target.disabled = true;
+            
             evt.preventDefault();
 
             const profile = getProfile(this.#els.form);
@@ -351,6 +354,8 @@ class WcSignup extends HTMLElement {
             await sendEmail(profile.email, profile.accountnumber);
             
             this.cleanUp();
+
+            evt.target.disabled = false;
 
             // open the confirmation popup
             evtOpenSignUpConfirmation.detail = profile;
