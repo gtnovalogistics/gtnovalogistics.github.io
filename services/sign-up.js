@@ -18,13 +18,15 @@
 //  isagreed
 const registerProfile = async (profile) => {
 
-    const errors = validationErrors(profile);
+    /*****
+    const errors = validateProfile(profile);
     if(errors.length > 0){
         return {
             status: 'error',
             errors: errors
         };
     }
+    *****/
 
     const counter = await getNextCounter();
     const accountNumber = await getAccountNumber(counter);
@@ -90,7 +92,7 @@ async function getAccountNumber(counter) {
     }      
 }
 
-const validationErrors = (profile) => {
+const validateProfile = (profile) => {
     let errors = [];
     
     if( ! profile.password || ! profile.confirmpassword || profile.password !== profile.confirmpassword){
@@ -136,4 +138,4 @@ const validationErrors = (profile) => {
 }
 
 
-export {registerProfile};
+export {registerProfile, validateProfile};

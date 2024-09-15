@@ -1,6 +1,7 @@
 import {evtCloseSignUp} from "../events/sign-up.js";
-import {registerProfile} from "../services/sign-up.js";
+import {registerProfile, validateProfile} from "../services/sign-up.js";
 import {sendEmail} from "../services/send-email.js";
+import {userEmail} from "../services/user.js";
 import {evtOpenSignUpConfirmation} from "../events/sign-up-confirmation.js";
 
 const template = document.createElement('template');
@@ -305,32 +306,45 @@ class WcSignup extends HTMLElement {
         shadow.appendChild(template.content.cloneNode(true));        
     }
 
+    #els = {};
+
+    cleanUp() {
+        clearErrors(this.#els.errorsSection);
+        closePopup(this.#els.form);
+    }
+
     async handleEvent(evt) {
-        const form = this.shadowRoot.querySelector('form');
-        const errorsSection = this.shadowRoot.getElementById('errors');
 
         if(evt.type === 'click' && evt.target.id === 'btnClose'){
-            clearErrors(errorsSection);
-            closePopup(form);
+            this.cleanUp();
         }
 
         if(evt.type === 'click' && evt.target.id === 'btnSubmit'){
 
             evt.preventDefault();
 
-            const profile = getProfile(form);
-            const result = await registerProfile(profile);
+            const profile = getProfile(this.#els.form);
 
-            const container = this.shadowRoot.getElementById('errors');
-            if(result.status === 'error'){
-                handleErrors(result.errors, container);
+            const errors = validateProfile(profile);
+            if(errors.length > 0){
+                handleErrors(errors, this.#els.errorsSection);
+                return; 
+            }
+
+            // prevent email duplication
+            ////////////////////////////
+
+            const email = await userEmail(this.#els.form.email.value);
+            if(email.found === true){
+                handleErrors([`Email ${this.#els.form.email.value} already exists`], this.#els.errorsSection);
                 return;
             }
 
-            await sendEmail(profile.email, profile.accountnumber);
+            await registerProfile(profile);
 
-            clearErrors(errorsSection);
-            closePopup(form);
+            await sendEmail(profile.email, profile.accountnumber);
+            
+            this.cleanUp();
 
             // open the confirmation popup
             evtOpenSignUpConfirmation.detail = profile;
@@ -340,7 +354,8 @@ class WcSignup extends HTMLElement {
     }
 
     connectedCallback() {
-        const form = this.shadowRoot.querySelector('form');
+        this.#els.form = this.shadowRoot.querySelector('form');
+        this.#els.errorsSection = this.shadowRoot.getElementById('errors');
 
         this.shadowRoot.getElementById('btnClose')
             .addEventListener('click', this);
