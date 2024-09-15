@@ -110,6 +110,10 @@ const validateProfile = (profile) => {
     if( ! profile.email || profile.email.length <= 0){
         errors.push("Email address is required.");
     }   
+
+    if( ! profile.address || profile.address.length <= 0){
+      errors.push("Address is required.");
+  }  
     
     if( ! profile.mobile || profile.mobile.length <= 0){
         errors.push("Mobile number is required.");

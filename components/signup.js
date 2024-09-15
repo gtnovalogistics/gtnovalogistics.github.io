@@ -204,9 +204,14 @@ template.innerHTML = `
 
 
             <div class="tin">
+                <label>*Address</label>
+                <input type="text" name="address" id="address" placeholder="Enter Full Address">
+            </div>              
+
+            <div class="tin">
                 <label>Tin Number (Optional)</label>
                 <input type="text" name="tin" id="tin" placeholder="Enter TIN Number">
-            </div>              
+            </div> 
 
             <div class="adaptive">
                 <div>
@@ -255,6 +260,7 @@ const getProfile = (form) => {
         'mobile' : form.mobile.value,
         'password' : form.password.value,
         'confirmpassword' : form['confirm-password'].value,
+        'address' : form.address.value,
         'tin' : form.tin.value,
         'company' : form.company.value,
         'reference' : form.reference.value,
