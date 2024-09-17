@@ -100,14 +100,14 @@ template.innerHTML = `
     <section class="container">
         <img src="images/GTNova_logo_no_bg.png" width="167" height="78" alt="main logo">
         <menu>
-            <li><a href="#">Search <span>&#x276F;</span></a></li>
-            <li><a href="#">Services <span>&#x276F;</span></a></li>
-            <li><a href="#">About Us <span>&#x276F;</span></a></li>
-            <li><a href="#">Others <span>&#x276F;</span></a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="under-construction">Search <span>&#x276F;</span></a></li>
+            <li><a href="under-construction">Services <span>&#x276F;</span></a></li>
+            <li><a href="under-construction">About Us <span>&#x276F;</span></a></li>
+            <li><a href="under-construction">Others <span>&#x276F;</span></a></li>
+            <li><a href="under-construction">Contact Us</a></li>
         </menu>
         <div class="login-signup">
-            <a href="#" class="primary">LOGIN</a>
+            <a href="under-construction" class="primary">LOGIN</a>
             <a href="#" class="secondary" id="btnSignup">SIGN UP</a>
             <div class="hamburger-button" id="btnHamburger">&#x2630;</div>
         </div>

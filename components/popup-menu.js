@@ -34,11 +34,11 @@ template.innerHTML = `
     
     <section>
         <div class="close"><a href="#">X</div>
-        <div><a href="#">Search</a></div>
-        <div><a href="#">Services</a></div>
-        <div><a href="#">About Us</a></div>
-        <div><a href="#">Others</a></div>
-        <div><a href="#">Contact Us</a></div>          
+        <div><a href="under-construction">Search</a></div>
+        <div><a href="under-construction">Services</a></div>
+        <div><a href="under-construction">About Us</a></div>
+        <div><a href="under-construction">Others</a></div>
+        <div><a href="under-construction">Contact Us</a></div>          
     </section>
 
 `;

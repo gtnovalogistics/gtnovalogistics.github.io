@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GTNova Logistics</title>
+    <link rel="stylesheet" href="global.css">
+
+    <script src="components/header/socials-contacts.js" type="module"></script>
+    <script src="components/header/main-header.js" type="module"></script>
+    <script src="components/popup-menu.js" type="module" async></script>
+    <script src="components/billboard.js" type="module"></script>
+    <script src="components/services.js" type="module"></script>
+    <script src="components/signup.js" type="module"></script>
+    <script src="components/signup-confirmation.js" type="module"></script>
+
+    <script src="./events/popup-menu.js" type="module"></script>
+    <script src="./handlers/popup-menu.js" type="module"></script>
+
+    <script src="./events/sign-up.js" type="module"></script>
+    <script src="./handlers/sign-up.js" type="module"></script>
+
+    <script src="./events/sign-up-confirmation.js" type="module"></script>
+    <script src="./handlers/sign-up-confirmation.js" type="module"></script>
+    <script src="./components/under-construction.js" type="module"></script>
+</head>
+<body>
+    <header>
+        <wc-socials-contacts class="socials-contacts"></wc-socials-contacts>
+        <wc-main-header></wc-main-header>
+        <wc-popup-menu id="popup-menu" class="popup-menu no-display"></wc-popup-menu>
+    </header>
+
+    <main>
+        <wc-signup class="no-display" id="signup"></wc-signup>
+        <wc-signup-confirmation class="no-display" id="signup-confirmation"></wc-signup-confirmation>   
+        <wc-under-construction></wc-under-construction>
+        
+    </main>
+
+    <footer>
+
+    </footer>
+
+</body>
+</html>
