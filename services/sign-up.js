@@ -18,16 +18,6 @@
 //  isagreed
 const registerProfile = async (profile) => {
 
-    /*****
-    const errors = validateProfile(profile);
-    if(errors.length > 0){
-        return {
-            status: 'error',
-            errors: errors
-        };
-    }
-    *****/
-
     const counter = await getNextCounter();
     const accountNumber = await getAccountNumber(counter);
 
@@ -132,7 +122,7 @@ const validateProfile = (profile) => {
         errors.push("Email address is not valid.");
     }
 
-    const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    const regex = /\d{5,}/;
     if (!profile.mobile.match(regex)) {
         errors.push("Mobile number is not valid.");
     }

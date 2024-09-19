@@ -358,7 +358,6 @@ const getProfile = (form) => {
         'mobile' : form.mobile.value,
         'password' : form.password.value,
         'confirmpassword' : form['confirm-password'].value,
-        'address' : form.address.value,
         'tin' : form.tin.value,
         'company' : form.company.value,
         'reference' : form.reference.value,
@@ -435,6 +434,7 @@ class WcSignup extends HTMLElement {
             const errors = validateProfile(profile);
             if(errors.length > 0){
                 handleErrors(errors, this.#els.errorsSection);
+                evt.target.disabled = false;
                 return; 
             }
 
@@ -444,6 +444,7 @@ class WcSignup extends HTMLElement {
             const email = await userEmail(this.#els.form.email.value);
             if(email.found === true){
                 handleErrors([`Email ${this.#els.form.email.value} already exists`], this.#els.errorsSection);
+                evt.target.disabled = false;
                 return;
             }
 
