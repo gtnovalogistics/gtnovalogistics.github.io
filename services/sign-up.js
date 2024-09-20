@@ -1,9 +1,4 @@
 
-// return
-//  {
-//      status: 'ok'/'error',
-//      errors: ['error1', 'error2']
-//  }
 
 // profile
 //  firstname
@@ -12,6 +7,9 @@
 //  mobile
 //  password
 //  confirmpassword
+//  address_line1
+//  address_line2
+//  city
 //  tin
 //  companyname
 //  reference
@@ -101,9 +99,13 @@ const validateProfile = (profile) => {
         errors.push("Email address is required.");
     }   
 
-    if( ! profile.address || profile.address.length <= 0){
-      errors.push("Address is required.");
-  }  
+    if( ! profile.address_line1 || profile.address_line1.length <= 0){
+      errors.push("Address Line 1 is required.");
+    } 
+
+    if( ! profile.city || profile.city.length <= 0 || profile.city === "Select"){
+      errors.push("City is required.");
+    }     
     
     if( ! profile.mobile || profile.mobile.length <= 0){
         errors.push("Mobile number is required.");

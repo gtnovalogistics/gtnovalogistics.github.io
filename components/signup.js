@@ -3,6 +3,7 @@ import {registerProfile, validateProfile} from "../services/sign-up.js";
 import {sendEmail} from "../services/send-email.js";
 import {userEmail} from "../services/user.js";
 import {evtOpenSignUpConfirmation} from "../events/sign-up-confirmation.js";
+import {evtLoading} from "../events/loading.js";
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -216,18 +217,18 @@ template.innerHTML = `
             <fieldset>
                 <legend>*Address</legend>
                 <div class="tin">
-                    <label for="line1">*Line 1</label>
-                    <input type="text" name="line1" id="line1" placeholder="Enter Line 1" required>
+                    <label for="address_line1">*Line 1</label>
+                    <input type="text" name="address_line1" id="address_line1" placeholder="Enter Line 1" required>
                 </div>
                 <div class="tin">
-                    <label for="line2">Line 1</label>
-                    <input type="text" name="line2" id="line2" placeholder="Enter Line 2">
+                    <label for="address_line2">Line 2</label>
+                    <input type="text" name="address_line2" id="address_line2" placeholder="Enter Line 2">
                 </div>
                 <div class="adaptive">
                     <div>
                         <label for="city">*City</label>
                         <select name="city" id="city" required>
-                            <option value="select" selected>Select</option>
+                            <option value="Select" selected>Select</option>
                             <option value=”Achiwib">Achiwib</option>
                             <option value=”Adventure">Adventure</option>
                             <option value=”Aishalton">Aishalton</option>
@@ -299,11 +300,7 @@ template.innerHTML = `
                             <option value=”Yupukarri">Yupukarri</option>
                             <option value=”Zeelandia">Zeelandia</option>
                         </select>
-                    </div>
-                    <div>
-                        <label for="postal">*Postal Code</label>
-                        <input type="text" name="postal" id="postal" required>
-                </div>                
+                    </div>              
             </fieldset>            
 
             <div class="tin">
@@ -358,6 +355,9 @@ const getProfile = (form) => {
         'mobile' : form.mobile.value,
         'password' : form.password.value,
         'confirmpassword' : form['confirm-password'].value,
+        'address_line1' : form.address_line1.value,
+        'address_line2' : form.address_line2.value,
+        'city' : form.city.value,
         'tin' : form.tin.value,
         'company' : form.company.value,
         'reference' : form.reference.value,
@@ -372,6 +372,9 @@ const clear = (form) => {
     form.mobile.value = '';
     form.password.value = '';
     form['confirm-password'].value = '';
+    form.address_line1.value = '';
+    form.address_line2.value = '';
+    form.city.value = 'Select';
     form.tin.value = '';
     form.company.value = '';
     form.reference.value = 'Select';
@@ -425,7 +428,8 @@ class WcSignup extends HTMLElement {
         if(evt.type === 'click' && evt.target.id === 'btnSubmit'){
 
             // prevent the form from submitting multiple times
-            evt.target.disabled = true;
+            //evt.target.disabled = true;
+            
             
             evt.preventDefault();
 
@@ -434,17 +438,20 @@ class WcSignup extends HTMLElement {
             const errors = validateProfile(profile);
             if(errors.length > 0){
                 handleErrors(errors, this.#els.errorsSection);
-                evt.target.disabled = false;
+                //evt.target.disabled = false;
                 return; 
             }
 
+            document.dispatchEvent(evtLoading.event);
+
             // prevent email duplication
             ////////////////////////////
-
+            
             const email = await userEmail(this.#els.form.email.value);
             if(email.found === true){
                 handleErrors([`Email ${this.#els.form.email.value} already exists`], this.#els.errorsSection);
-                evt.target.disabled = false;
+                //evt.target.disabled = false;
+                document.dispatchEvent(evtLoading.event);
                 return;
             }
 
@@ -454,7 +461,8 @@ class WcSignup extends HTMLElement {
             
             this.cleanUp();
 
-            evt.target.disabled = false;
+            //evt.target.disabled = false;
+            document.dispatchEvent(evtLoading.event);
 
             // open the confirmation popup
             evtOpenSignUpConfirmation.detail = profile;
