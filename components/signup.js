@@ -457,7 +457,7 @@ class WcSignup extends HTMLElement {
 
             await registerProfile(profile);
 
-            await sendEmail(profile.email, profile.accountnumber);
+            await sendEmail(profile.email, profile.accountnumber, `${profile.firstname} ${profile.lastname}`);
             
             this.cleanUp();
 

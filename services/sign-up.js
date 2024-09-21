@@ -16,8 +16,8 @@
 //  isagreed
 const registerProfile = async (profile) => {
 
-    const counter = await getNextCounter();
-    const accountNumber = await getAccountNumber(counter);
+    //const counter = await getNextCounter();
+    const accountNumber = await getAccountNumber();
 
     profile.accountnumber = accountNumber;
     return await saveProfile(profile);
@@ -46,6 +46,7 @@ async function saveProfile(profile) {
     }
 }
 
+/*
 async function getNextCounter(){
     const url = 'https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/counter';
     try {
@@ -62,9 +63,10 @@ async function getNextCounter(){
       console.error(error.message);
     }    
 }
+*/
 
-async function getAccountNumber(counter) {
-    const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/account-number?counter=${counter}`;
+async function getAccountNumber() {
+    const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/account-number`;
     try {
       const response = await fetch(url);
       if (!response.ok) {
