@@ -1,6 +1,6 @@
-const sendEmail = async (email, accountnumber, name) => {
+const sendEmail = async (email, accountnumber, name, companyname) => {
 
-    const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/email?email=${email}&accountnumber=${accountnumber}&name=${name}`;
+    const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/email?email=${email}&accountnumber=${accountnumber}&name=${name}&companyname=${companyname}`;
     try {
       const response = await fetch(url);
       if (!response.ok) {
