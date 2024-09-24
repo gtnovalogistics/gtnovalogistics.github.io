@@ -28,6 +28,7 @@ template.innerHTML = `
             justify-content: center;
             padding: 0 var(--padding-side);
             margin-top: 5px;
+            font-size: 1rem;
         }
 
         .motto {
@@ -55,6 +56,7 @@ template.innerHTML = `
             font-weight: 400;
             margin-top: 2rem;
             line-height: 1.2rem;
+            font-size: 1rem;
         }
         
         .checklist {

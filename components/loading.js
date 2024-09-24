@@ -18,28 +18,32 @@ template.innerHTML = `
     
         }            
         
-        .loading {
-            width: fit-content;
-            font-weight: bold;
-            font-family: monospace;
-            font-size: 30px;
-            overflow: hidden;
+        .loader {
+        width: 60px;
+        aspect-ratio: 1;
+        border: 15px solid #ddd;
+        border-radius: 50%;
+        position: relative;
+        transform: rotate(45deg);
         }
-        .loading::before {
-            content: "Loading...";
-            color: #0000;
-            text-shadow: 0 0 0 #000,10ch 0 0 #fff,20ch 0 0 #000;
-            background: linear-gradient(90deg,#0000 calc(100%/3),#000 0 calc(2*100%/3),#0000 0) left/300% 100%;
-            animation: l23 2s infinite;
+        .loader::before {
+        content: "";
+        position: absolute;
+        inset: -15px;
+        border-radius: 50%;
+        border: 15px solid #514b82;
+        animation: l18 2s infinite linear;
         }
-
-        @keyframes l23{
-            50% {background-position: center;text-shadow: -10ch 0 0 #000,    0 0 0 #fff,10ch 0 0 #000}
-            100%{background-position: right ;text-shadow: -20ch 0 0 #000,-10ch 0 0 #fff,   0 0 0 #000}
-        }        
+        @keyframes l18 {
+            0%   {clip-path:polygon(50% 50%,0 0,0    0,0    0   ,0    0   ,0    0   )}
+            25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0   ,100% 0   ,100% 0   )}
+            50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+            75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0    100%,0    100%)}
+            100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0    100%,0    0   )}
+        }       
     </style>
 
-    <div class="loading"></div>
+    <div class="loader"></div>
 
 `;
 

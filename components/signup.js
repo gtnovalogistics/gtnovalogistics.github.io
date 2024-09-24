@@ -78,7 +78,7 @@ template.innerHTML = `
         label {
             font-family: helveticaneue;
             font-weight: 400;
-            font-size: clamp(1rem,4vw,1.3rem);       
+            font-size: 1rem;       
         }
         
         #btnSubmit {

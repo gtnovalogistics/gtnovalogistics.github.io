@@ -98,7 +98,7 @@ template.innerHTML = `
     </style>
 
     <section class="container">
-        <img src="images/GTNova_logo_no_bg.png" width="167" height="78" alt="main logo">
+        <a href="index"><img src="images/GTNova_logo_no_bg.png" width="167" height="78" alt="main logo"></a>
         <menu>
             <li><a href="under-construction">Search <span>&#x276F;</span></a></li>
             <li><a href="under-construction">Services <span>&#x276F;</span></a></li>
