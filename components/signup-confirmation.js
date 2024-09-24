@@ -192,6 +192,7 @@ class WcSignUpConfirmation extends HTMLElement {
     handleEvent(evt) {
         if(evt.type === 'click' && (evt.target.id === 'btnOkay' || evt.target.id === 'btnClose')){
             document.dispatchEvent(evtCloseSignUpConfirmation.event);
+            location.href = 'index';
         }
     }
 
