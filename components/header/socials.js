@@ -11,10 +11,10 @@ template.innerHTML = `
     </style>
     
 
-    <div><a href="under-construction"><img src="images/facebook.png" width="24" height="24" alt="facebook"></a></div>
-    <div><a href="under-construction"><img src="images/twitter.png" width="24" height="24" alt="twitter"></a></div>
-    <div><a href="under-construction"><img src="images/linkedin.png" width="24" height="24" alt="linkedin"></a></div>
-    <div><a href="under-construction"><img src="images/youtube.png" width="24" height="24" alt="youtube"></a></div>
+    <div><a href="under-construction"><img src="images/facebook.webp" width="24" height="24" alt="facebook"></a></div>
+    <div><a href="under-construction"><img src="images/twitter.webp" width="24" height="24" alt="twitter"></a></div>
+    <div><a href="under-construction"><img src="images/linkedin.webp" width="24" height="24" alt="linkedin"></a></div>
+    <div><a href="under-construction"><img src="images/youtube.webp" width="24" height="24" alt="youtube"></a></div>
 
 `;
 

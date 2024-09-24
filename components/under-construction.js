@@ -47,7 +47,7 @@ template.innerHTML = `
     </style>
     
     <section>
-        <img src="images/under_construction.png" alt="under construction">
+        <img src="images/under_construction.webp" alt="under construction">
         <h1>Under Construction</h1>
         <p>
             We are currently under construction as we work on bringing world class customer experiences to Guyana.

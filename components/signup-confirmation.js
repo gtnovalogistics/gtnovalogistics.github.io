@@ -118,8 +118,8 @@ template.innerHTML = `
     </style>
     
     <section class="container">
-        <img src="images/close.png" alt="close" width="24" height="24" id="btnClose">
-        <img src="images/green_check.png" alt="green check" width="64" height="64" class="green-check">
+        <img src="images/close.webp" alt="close" width="24" height="24" id="btnClose">
+        <img src="images/green_check.webp" alt="green check" width="64" height="64" class="green-check">
         <div class="poppins-bold fs3">Success!</div>
         <div class="poppins-bold fs15">Welcome to GTNova Freight and Logistics.</div>
         <div class="helveticaneue-normal fs15 m3">Here are your details:</div>

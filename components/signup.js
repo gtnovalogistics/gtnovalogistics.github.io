@@ -183,7 +183,7 @@ template.innerHTML = `
     <section class="container">
         <header>
             <div>Sign Up</div>
-            <img src="images/close.png" alt="close" width="24" height="24" id="btnClose">
+            <img src="images/close.webp" alt="close" width="24" height="24" id="btnClose">
         </header>
         <section id="errors" class="errors no-display">
             <ul>

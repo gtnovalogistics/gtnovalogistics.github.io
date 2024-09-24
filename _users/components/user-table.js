@@ -50,7 +50,7 @@ template.innerHTML = `
     <section class="container">
 
         <header>
-            <img src="images/GTNova_logo_no_bg.png" width="167" height="78" alt="main logo">
+            <img src="images/GTNova_logo_no_bg.webp" width="167" height="78" alt="main logo">
             <h2>USERS</h2>
         </header>
         <table>

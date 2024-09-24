@@ -19,12 +19,12 @@ template.innerHTML = `
     
 
     <div>
-        <img src="images/mail.png" width="19" height="14" alt="email us">
+        <img src="images/mail.webp" width="19" height="14" alt="email us">
         info@gtnovalogistics.com
     </div>
 
     <div>
-        <img src="images/phone.png" width="16" height="16" alt="call us">
+        <img src="images/phone.webp" width="16" height="16" alt="call us">
         +592 227 6975
     </div>
 

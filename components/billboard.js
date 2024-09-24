@@ -7,7 +7,7 @@ template.innerHTML = `
             container-type: inline-size;
             display: flex;
             justify-content: space-between;
-            background: white url("images/transport_bg.png") center/cover no-repeat content-box content-box fixed; 
+            background: white url("images/transport_bg.webp") center/cover no-repeat content-box content-box fixed; 
         }
 
         .delivery-image {
@@ -119,23 +119,23 @@ template.innerHTML = `
 
                 <div class="checklist">
                     <div>
-                        <img src="images/green_check.png" width="20px" height="20px" alt="green check">
+                        <img src="images/green_check.webp" width="20px" height="20px" alt="green check">
                         <div>Advanced Tracking</div>
                     </div>
                     <div>
-                        <img src="images/green_check.png" width="20px" height="20px" alt="green check">
+                        <img src="images/green_check.webp" width="20px" height="20px" alt="green check">
                         <div>Global Reach</div>
                     </div>
                     <div>
-                        <img src="images/green_check.png" width="20px" height="20px" alt="green check">
+                        <img src="images/green_check.webp" width="20px" height="20px" alt="green check">
                         <div>Competitive Rates</div>
                     </div>
                     <div>
-                        <img src="images/green_check.png" width="20px" height="20px" alt="green check">
+                        <img src="images/green_check.webp" width="20px" height="20px" alt="green check">
                         <div>Secured and Flexible Shipping Options</div>
                     </div>
                     <div>
-                        <img src="images/green_check.png" width="20px" height="20px" alt="green check">
+                        <img src="images/green_check.webp" width="20px" height="20px" alt="green check">
                         <div>Experienced Team</div>
                     </div>
                 </div> 
@@ -146,7 +146,7 @@ template.innerHTML = `
                 </div>
             </div>
         </div>
-        <img src="images/billboard.png" class="delivery-image">
+        <img src="images/billboard.webp" class="delivery-image">
     </section>
 
 `;

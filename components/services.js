@@ -47,7 +47,7 @@ template.innerHTML = `
     <section class="container">
         <div class="card">
             <header>
-                <img src="images/airplane.png" alt="air freight" width="43" height="44">
+                <img src="images/airplane.webp" alt="air freight" width="43" height="44">
                 <div class="label">
                     <div>Air Freight</div>
                     <div>Transportation</div>
@@ -60,7 +60,7 @@ template.innerHTML = `
 
         <div class="card">
             <header>
-                <img src="images/ship.png" alt="air freight" width="43" height="44">
+                <img src="images/ship.webp" alt="air freight" width="43" height="44">
                 <div class="label">
                     <div>Ocean Freight</div>
                     <div>Transportation</div>
@@ -73,7 +73,7 @@ template.innerHTML = `
         
         <div class="card">
             <header>
-                <img src="images/truck.png" alt="air freight" width="43" height="44">
+                <img src="images/truck.webp" alt="air freight" width="43" height="44">
                 <div class="label">
                     <div>Land Freight</div>
                     <div>Transportation</div>
@@ -86,7 +86,7 @@ template.innerHTML = `
         
         <div class="card">
             <header>
-                <img src="images/warehouse.png" alt="air freight" width="43" height="44">
+                <img src="images/warehouse.webp" alt="air freight" width="43" height="44">
                 <div class="label">
                     <div>Warehousing</div>
                     <div>Services</div>
