@@ -4,6 +4,15 @@ import {sendEmail} from "../services/send-email.js";
 import {userEmail} from "../services/user.js";
 import {evtOpenSignUpConfirmation} from "../events/sign-up-confirmation.js";
 import {evtLoading} from "../events/loading.js";
+import cities from "../cities.json" with { type: 'json' };
+
+const renderCities = () => {
+    let ret = '';
+    cities.forEach(city => {
+        ret += `<option value="${city}">${city}</option>`;
+    })
+    return ret;
+}
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -139,7 +148,7 @@ template.innerHTML = `
 
             label {
                 line-height: clamp(1rem,4vw,1.5rem);
-                font-size: clamp(1rem,4vw,1.5rem);
+                font-size: clamp(1rem,4vw,1.2rem);
                 
                 span{
                     font-weight: 700;
@@ -224,83 +233,14 @@ template.innerHTML = `
                     <label for="address_line2">Line 2</label>
                     <input type="text" name="address_line2" id="address_line2" placeholder="Enter Line 2">
                 </div>
-                <div class="adaptive">
-                    <div>
-                        <label for="city">*City</label>
-                        <select name="city" id="city" required>
-                            <option value="Select" selected>Select</option>
-                            <option value=”Achiwib">Achiwib</option>
-                            <option value=”Adventure">Adventure</option>
-                            <option value=”Aishalton">Aishalton</option>
-                            <option value=”Anna Regina">Anna Regina</option>
-                            <option value=”Annai">Annai</option>
-                            <option value=”Annandale">Annandale</option>
-                            <option value=”Apoteri">Apoteri</option>
-                            <option value=”Awaruwaunawa">Awaruwaunawa</option>
-                            <option value=”Barakara">Barakara</option>
-                            <option value=”Bartica">Bartica</option>
-                            <option value=”Belladrum">Belladrum</option>
-                            <option value=”Cane Grove">Cane Grove</option>
-                            <option value=”Capoey">Capoey</option>
-                            <option value=”Charity">Charity</option>
-                            <option value=”Clonbrook">Clonbrook</option>
-                            <option value=”Crabwood Creek">Crabwood Creek</option>
-                            <option value=”Dadanawa">Dadanawa</option>
-                            <option value=”Den Amstel">Den Amstel</option>
-                            <option value=”Fort Wellington">Fort Wellington</option>
-                            <option value=”Georgetown">Georgetown</option>
-                            <option value=”Hampton Court">Hampton Court</option>
-                            <option value=”Hiawa">Hiawa</option>
-                            <option value=”Hosororo">Hosororo</option>
-                            <option value=”Hyde Park">Hyde Park</option>
-                            <option value=”Imbaimadai">Imbaimadai</option>
-                            <option value=”Ituni">Ituni</option>
-                            <option value=”Kabakaburi">Kabakaburi</option>
-                            <option value=”Kamarang">Kamarang</option>
-                            <option value=”Kamwatta Hill">Kamwatta Hill</option>
-                            <option value=”Karasabai Village">Karasabai Village</option>
-                            <option value=”Karaudanawa">Karaudanawa</option>
-                            <option value=”Kato Village">Kato Village</option>
-                            <option value=”Koriabo">Koriabo</option>
-                            <option value=”Kumaka">Kumaka</option>
-                            <option value=”Kwakwani">Kwakwani</option>
-                            <option value=”Lethem">Lethem</option>
-                            <option value=”Linden">Linden</option>
-                            <option value=”Mabaruma">Mabaruma</option>
-                            <option value=”Mahaicony Village">Mahaicony Village</option>
-                            <option value=”Mahdia">Mahdia</option>
-                            <option value=”Marurawaunawa Village">Marurawaunawa Village</option>
-                            <option value=”Matthews Ridge">Matthews Ridge</option>
-                            <option value=”Monkey Mountain">Monkey Mountain</option>
-                            <option value=”New Amsterdam">New Amsterdam</option>
-                            <option value=”Onderneeming">Onderneeming</option>
-                            <option value=”Orealla">Orealla</option>
-                            <option value=”Paramakatoi">Paramakatoi</option>
-                            <option value=”Parika">Parika</option>
-                            <option value=”Port Kaituma">Port Kaituma</option>
-                            <option value=”Port Mourant">Port Mourant</option>
-                            <option value=”Princetown">Princetown</option>
-                            <option value=”Queenstown">Queenstown</option>
-                            <option value=”Rockstone">Rockstone</option>
-                            <option value=”Rose Hall">Rose Hall</option>
-                            <option value=”Rosignol">Rosignol</option>
-                            <option value=”Saint Cuthberts Mission">Saint Cuthberts Mission</option>
-                            <option value=”Saint Francis Mission">Saint Francis Mission</option>
-                            <option value=”Sand Creek Village">Sand Creek Village</option>
-                            <option value=”Santa Mission">Santa Mission</option>
-                            <option value=”Santa Rosa Mission">Santa Rosa Mission</option>
-                            <option value=”Sawariwaunawa">Sawariwaunawa</option>
-                            <option value=”Skeldon">Skeldon</option>
-                            <option value=”Surama Village">Surama Village</option>
-                            <option value=”Uitvlugt">Uitvlugt</option>
-                            <option value=”Vreed-en-Hoop">Vreed-en-Hoop</option>
-                            <option value=”Weldaad">Weldaad</option>
-                            <option value=”Windsor Forest">Windsor Forest</option>
-                            <option value=”Woweta Village">Woweta Village</option>
-                            <option value=”Yupukarri">Yupukarri</option>
-                            <option value=”Zeelandia">Zeelandia</option>
-                        </select>
-                    </div>              
+                <div class="tin">
+                    <label for="city">City</label>
+                    <input list="cities" name="city" id="city" placeholder="Enter City">
+                    <datalist id="cities">
+                        ${renderCities()}
+                    </datalist>
+                </div>
+            
             </fieldset>            
 
             <div class="tin">
@@ -347,6 +287,8 @@ template.innerHTML = `
     </section>
 `;
 
+
+
 const getProfile = (form) => {
     return {
         'firstname': form.firstname.value,
@@ -374,7 +316,7 @@ const clear = (form) => {
     form['confirm-password'].value = '';
     form.address_line1.value = '';
     form.address_line2.value = '';
-    form.city.value = 'Select';
+    form.city.value = '';
     form.tin.value = '';
     form.company.value = '';
     form.reference.value = 'Select';
