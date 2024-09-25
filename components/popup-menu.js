@@ -36,7 +36,7 @@ template.innerHTML = `
         <div class="close"><a href="#">X</div>
         <div><a href="under-construction">Search</a></div>
         <div><a href="under-construction">Services</a></div>
-        <div><a href="under-construction">About Us</a></div>
+        <div><a href="aboutus">About Us</a></div>
         <div><a href="under-construction">Others</a></div>
         <div><a href="under-construction">Contact Us</a></div>          
     </section>

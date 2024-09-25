@@ -102,7 +102,7 @@ template.innerHTML = `
         <menu>
             <li><a href="under-construction">Search <span>&#x276F;</span></a></li>
             <li><a href="under-construction">Services <span>&#x276F;</span></a></li>
-            <li><a href="under-construction">About Us <span>&#x276F;</span></a></li>
+            <li><a href="aboutus">About Us <span>&#x276F;</span></a></li>
             <li><a href="under-construction">Others <span>&#x276F;</span></a></li>
             <li><a href="under-construction">Contact Us</a></li>
         </menu>
