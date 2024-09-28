@@ -1,11 +1,12 @@
 import './register.js';
 import './links.js';
 import './address.js';
+import './copyright.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
-        :host {    
+        :host {   
         }
 
         .container {
@@ -17,6 +18,7 @@ template.innerHTML = `
             padding: 0 var(--padding-side);
             margin-top: 3rem;
         }
+
     </style>
 
 
@@ -28,6 +30,8 @@ template.innerHTML = `
         <wc-footer-address class="footer-address"></wc-footer-address>
         <wc-footer-links class="footer-links"></wc-footer-links>
     </section>
+
+    <wc-footer-copyright class="footer-copyright"></wc-footer-copyright>
 
 `;
 
