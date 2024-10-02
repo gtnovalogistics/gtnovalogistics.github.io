@@ -14,4 +14,3 @@ const renderBadges = () => {
 };
 
 renderBadges();
-//export {renderBadges};

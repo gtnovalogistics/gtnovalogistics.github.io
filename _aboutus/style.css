@@ -20,62 +20,6 @@ h1 {
     margin-top: 2rem;
 }
 
-.duplex {
-    display: flex;
-    flex-direction: row;
-    gap: 4vw;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.duplex > img {
-    width: 30vw;
-    min-width: 368px;
-    height: auto;       
-}
-
-@media screen and (width < 1184px) {
-    .duplex > img {
-        display: none;     
-    }
-}
-
-h2 {
-    color: var(--violet);
-    font-weight: 700;
-    font-size: 1.8rem;
-}
-
-.description {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 30vw;
-
-    p:first-child {
-        font-weight: 600;
-        font-size: 1.2rem;
-        color: var(--green);
-        font-style: italic;
-        line-height: 1.2rem;
-    }
-
-    p:last-child {
-        font-family: helveticaneue;
-        font-weight: 400;
-        color: gray;
-        font-size: 1rem;
-        line-height: 1.4rem;
-    }
-}
-
-@media screen and (width < 1184px) {
-    .description {
-        width: 80vw;
-    }
-}
-
 .corporate {
     width: 100%;
 
@@ -83,8 +27,6 @@ h2 {
         margin-bottom: 3rem;
     }
 }
-
-
 
 .badges {
     display: grid;

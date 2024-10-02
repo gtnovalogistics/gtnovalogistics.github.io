@@ -1,6 +1,8 @@
 import {evtHamburgerMenu} from "../../events/popup-menu.js";
 import {evtOpenSignUp} from "../../events/sign-up.js";
 
+import "./menu-popups/services.js";
+
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
@@ -23,6 +25,11 @@ template.innerHTML = `
             font-weight: 600;
             font-size: 1rem;
             list-style-type: none;
+            color: var(--violet);
+
+            li {
+                position: relative;
+            }
 
             a {
                 text-decoration: none;
@@ -95,13 +102,24 @@ template.innerHTML = `
             }
         }
 
+        .active-menu {
+            border-bottom: 5px solid var(--green);
+        }
+
+        .no-display {
+            display: none;
+        }
+
     </style>
 
     <section class="container">
         <a href="index"><img src="images/GTNova_logo_no_bg.webp" width="167" height="78" alt="main logo"></a>
         <menu>
             <li><a href="under-construction">Search <span>&#x276F;</span></a></li>
-            <li><a href="under-construction">Services <span>&#x276F;</span></a></li>
+            <li>
+                <a id="btnServices">Services <span>&#x276F;</span></a>
+                <wc-menu-services id="menuServices" class="no-display"></wc-menu-services>
+            </li>
             <li><a href="aboutus">About Us <span>&#x276F;</span></a></li>
             <li><a href="under-construction">Others <span>&#x276F;</span></a></li>
             <li><a href="under-construction">Contact Us</a></li>
@@ -116,27 +134,89 @@ template.innerHTML = `
 `;
 
 class WcMainHeader extends HTMLElement {
+
+    // private properties
+    /////////////////////
+    #elements;
+
+    // private methods
+    //////////////////
+
+    #getElementsWithId = () => {
+        const els = this.shadowRoot.querySelectorAll('*');
+        let elementsWithId = new Map();
+        els.forEach(el => {
+            if(el.hasAttribute('id')){
+                elementsWithId.set(el.id, el);
+            }
+        })
+
+        return elementsWithId;
+    };    
     constructor() {
         super();
         const shadow = this.attachShadow({ mode: 'open' });
-        shadow.appendChild(template.content.cloneNode(true));        
+        shadow.appendChild(template.content.cloneNode(true));      
+        this.#elements = this.#getElementsWithId();  
+    }
+
+    hideMenuServices = () => {
+        const menuServices = this.#elements.get('menuServices');
+        const btnServices = this.#elements.get('btnServices');
+        menuServices.classList.add('no-display');
+        btnServices.classList.remove('active-menu');
+    }
+
+    showMenuServices = () => {
+        const menuServices = this.#elements.get('menuServices');
+        const btnServices = this.#elements.get('btnServices');
+        menuServices.classList.remove('no-display');
+        btnServices.classList.add('active-menu');
+    }
+
+    handleDocumentClick = (evt) => {
+        const menuServices = this.#elements.get('menuServices');
+        const btnServices = this.#elements.get('btnServices');
+        if(!menuServices.contains(evt.target) && !btnServices.contains(evt.target)){
+            this.hideMenuServices();
+            window.removeEventListener('click', this.handleDocumentClick);
+        }       
+    }
+
+    handleBtnServices = (evt) => {
+        const menuServices = this.#elements.get('menuServices');
+        const btnServices = this.#elements.get('btnServices');
+        if(menuServices.classList.contains('no-display')){
+            this.showMenuServices();
+
+            evt.stopPropagation();
+            window.addEventListener('click', this.handleDocumentClick);
+            menuServices.addEventListener('click', this.hideMenuServices);
+        }else{
+            this.hideMenuServices();
+            window.removeEventListener('click', this.handleDocumentClick);
+            menuServices.removeEventListener('click', this.hideMenuServices);
+        }
     }
 
     handleEvent(evt) {
         switch(evt.target.id){
             case 'btnHamburger': document.dispatchEvent(evtHamburgerMenu.event); break;
             case 'btnSignup': document.dispatchEvent(evtOpenSignUp.event); break;
+            case 'btnServices': this.handleBtnServices(evt); break;
         }
-        
     }
 
     connectedCallback() {
 
-        this.shadowRoot.getElementById('btnHamburger')
+        this.#elements.get('btnHamburger')
             .addEventListener('click', this);
 
-        this.shadowRoot.getElementById('btnSignup')
+        this.#elements.get('btnSignup')
             .addEventListener('click', this);    
+
+        this.#elements.get('btnServices')
+            .addEventListener('click', this);
 
     }
 }

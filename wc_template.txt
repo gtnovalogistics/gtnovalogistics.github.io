@@ -1,0 +1,23 @@
+const template = document.createElement('template');
+template.innerHTML = `
+    <style>
+        :host {
+  
+    
+        }
+    </style>
+
+    <section class="container">
+    </section>
+
+`;
+
+
+
+customElements.define('wc-', class extends HTMLElement {
+    constructor() {
+        super();
+        const shadow = this.attachShadow({ mode: 'open' });
+        shadow.appendChild(template.content.cloneNode(true));        
+    }
+});
