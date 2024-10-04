@@ -1,6 +1,9 @@
-import badges from './badges.json' with {type: 'json'};
+//import badges from './badges.json' with {type: 'json'};
 
-const renderBadges = () => {
+const renderBadges = async () => {
+
+    const response = await fetch('/_aboutus/badges.json');
+    const badges = await response.json();
 
     let disp = '';
     badges.forEach(badge => {

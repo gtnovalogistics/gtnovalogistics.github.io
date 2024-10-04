@@ -4,9 +4,12 @@ import {sendEmail} from "../services/send-email.js";
 import {userEmail} from "../services/user.js";
 import {evtOpenSignUpConfirmation} from "../events/sign-up-confirmation.js";
 import {evtLoading} from "../events/loading.js";
-import cities from "../cities.json" with { type: 'json' };
 
-const renderCities = () => {
+const renderCities = async () => {
+    
+    const response = await fetch('../cities.json');
+    const cities = await response.json();
+
     let ret = '';
     cities.forEach(city => {
         ret += `<option value="${city}">${city}</option>`;
