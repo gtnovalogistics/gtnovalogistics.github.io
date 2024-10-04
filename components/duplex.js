@@ -34,14 +34,15 @@ const content = (info, motto, title, content, image, alt) => `
             color: var(--violet);
             font-weight: 700;
             font-size: 1.8rem;
-            margin: 0;
+            margin: 0 0 25px 0;
         }
 
         .description {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-            width: 30vw;
+            width: 35vw;
+            font-family: helveticaneue;
 
             p:first-child {
                 font-weight: 600;
@@ -52,14 +53,15 @@ const content = (info, motto, title, content, image, alt) => `
                 margin: 0;
             }
 
-            p:last-child {
-                font-family: helveticaneue;
-                font-weight: 400;
-                color: gray;
-                font-size: 1rem;
-                line-height: 1.4rem;
-                margin: 0;
-            }
+        }
+
+        slot[name="content"] {
+            font-family: helveticaneue;
+            font-weight: 400;
+            color: gray;
+            font-size: 1rem;
+            line-height: 1.4rem;
+            margin: 0;
         }
 
         @media screen and (width < 1184px) {
@@ -77,9 +79,7 @@ const content = (info, motto, title, content, image, alt) => `
         <div class="description">
             <p id="motto">${motto}</p>
             <h2 id="title">${title}</h2>
-            <p id="content">
-                ${content}
-            </p>
+            <slot name="content">${content}</slot>
         </div>
 
         ${info === 'left' ? `<img src="${image}" width="537" height="358" alt="${alt}" id="image">` : ''}

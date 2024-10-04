@@ -13,13 +13,6 @@ main {
     margin-bottom: 5rem;
 }
 
-h1 {
-    color: var(--violet);
-    font-weight: 700;
-    align-self: flex-start;
-    margin-top: 2rem;
-}
-
 .corporate {
     width: 100%;
 
@@ -39,4 +32,8 @@ h1 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+h1 {
+    align-self: flex-start;
 }

@@ -32,11 +32,11 @@ template.innerHTML = `
     </style>
 
     <ul>
-        <li><a href="#">Air Freight</a></li>
-        <li><a href="#">Ocean Freight</a></li>
-        <li><a href="#">Land Freight</a></li>
-        <li><a href="#">Warehousing</a></li>
-        <li><a href="#">Procurement Services</a></li>
+        <li><a href="air_freight">Air Freight</a></li>
+        <li><a href="ocean_freight">Ocean Freight</a></li>
+        <li><a href="land_freight">Land Freight</a></li>
+        <li><a href="warehousing">Warehousing</a></li>
+        <li><a href="procurement_services">Procurement Services</a></li>
     </ul>
 
 `;

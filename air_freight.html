@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GTNova Logistics</title>
+    <link rel="stylesheet" href="global.css" defer>
+    <link rel="stylesheet" href="_services/style.css">
+
+    <script src="./script.js" type="module"></script>
+    <script src="./components/duplex.js" type="module"></script>
+    <script src="./_services/components/slot_description.js" type="module"></script>
+    <script src="./_services/components/slot_list.js" type="module"></script>
+</head>
+<body>
+    
+    <wc-header></wc-header>
+    <wc-popup-menu id="popup-menu" class="popup-menu no-display"></wc-popup-menu>
+    <wc-signup class="no-display" id="signup"></wc-signup>
+
+
+    <main>
+        <h1>Air Freight</h1>
+        
+        <!-- Children here -->
+         <wc-duplex 
+            info="left"
+            title="Efficient Air Freight Across Continents"
+            motto="Your Partner for Swift and Secure Air Shipping"
+            image="_services/_air_freight/images/air_img1.webp"
+            alt="Your Partner for Swift and Secure Air Shipping"
+            content="">
+
+            <wc-slot-description
+                paragraph1="At GTNova Freight & Logistics, we specialize in providing rapid and secure air freight services that cater to your global shipping needs. 
+                Our commitment to punctual delivery and outstanding service ensures that whether your shipment is time-sensitive or routine, it arrives at its destination safely and on time."
+                paragraph2="With flights scheduled twice weekly, our experienced team expertly handles customs clearance and coordinates delivery logistics guaranteeing a seamless shipping experience."
+                ctaLink="#"
+                ctaBtnLabel="CHECK AIR FREIGHT RATES"
+                slot="content">
+
+            </wc-slot-description>
+        </wc-duplex>
+
+        <wc-duplex
+            info="right"
+            title="Why Choose GTNova for Air Shipping?"
+            motto="Global Reach with Rapid Delivery"
+            image="_services/_air_freight/images/air_img2.webp"
+            alt="Global Reach with Rapid Delivery"
+            content="">
+
+            <wc-slot-list
+                paragraph="Air shipping presents exceptional benefits for global logistics combining speed, dependability and an extensive network. By choosing GTNova for your air shipping needs, you leverage these advantages to ensure your goods arrive at their destination promptly and securely."
+                label1="Rapid Delivery"
+                description1="Experience the fastest shipping available for your international cargo."
+                label2="Global Accessibility"
+                description2="Benefit from our connections to major airports around the world expanding your reach."
+                label3="Dependable Security"
+                description3="Trust in our robust tracking systems for safe and timely deliveries."
+                label4="Customizable Solutions"
+                description4="Enjoy flexible options designed for urgent, regular or specialized shipments tailored to your
+                requirements."
+                slot="content">
+
+            </wc-slot-list>
+
+        </wc-duplex>
+
+
+    </main>
+
+    <wc-signup-confirmation class="no-display" id="signup-confirmation"></wc-signup-confirmation>
+    <wc-loading id="loading" class="no-display"></wc-loading>
+    <wc-footer></wc-footer>
+
+</body>
+</html>

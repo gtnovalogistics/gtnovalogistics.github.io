@@ -6,16 +6,18 @@ template.innerHTML = `
     <style>
         :host {
 
-            .container {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
 
-                padding: 0 var(--padding-side);
-                height: 2.6rem;
-                background-color: var(--violet);
-            } 
         }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 var(--padding-side);
+            height: 2.6rem;
+            background-color: var(--violet);
+        } 
 
     </style>
     

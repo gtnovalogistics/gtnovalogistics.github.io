@@ -108,5 +108,26 @@ header {
   z-index: 5;
 }
 
+/*------------*/
+/* cta button*/
+/*------------*/
+
+.cta-button {
+  font-family: helveticaneue;
+  border-radius: 5px;
+  border: 1px solid var(--violet);
+  padding: 0.7rem 1.1rem 0.4rem 1.1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  background-color: var(--violet);
+}
 
 
+h1 {
+  color: var(--violet);
+  font-family: poppins;
+  font-weight: 700;
+  margin-top: 2rem;
+  font-size: 2rem;
+}

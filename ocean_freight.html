@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GTNova Logistics</title>
+    <link rel="stylesheet" href="global.css" defer>
+    <link rel="stylesheet" href="_services/style.css">
+
+    <script src="./script.js" type="module"></script>
+    <script src="./components/duplex.js" type="module"></script>
+    <script src="./_services/components/slot_description.js" type="module"></script>
+    <script src="./_services/components/slot_list.js" type="module"></script>
+</head>
+<body>
+    
+    <wc-header></wc-header>
+    <wc-popup-menu id="popup-menu" class="popup-menu no-display"></wc-popup-menu>
+    <wc-signup class="no-display" id="signup"></wc-signup>
+
+
+    <main>
+        <h1>Ocean Freight</h1>
+        
+        <!-- Children here -->
+         <wc-duplex 
+            info="left"
+            title="Move Cargo Across Oceans with Confidence"
+            motto="Your Trusted Partner for Global Shipping"
+            image="_services/_ocean_freight/images/ocean_img1.webp"
+            alt="Your Trusted Partner for Global Shipping"
+            content="">
+
+            <wc-slot-description
+                paragraph1="Got oversized and bulky items to ship? GTNova Freight & Logistics has you covered. We offer frequent, reliable ocean freight solutions designed to simplify the movement of large goods from nearly any corner of the globe. Our focus on accuracy and timeliness ensures that your shipments clear every hurdle with minimal delays."
+                paragraph2="Our ocean freight services combine cost-efficiency with unparalleled reliability. Whether it’s bulk cargo or smaller loads, we streamline the entire shipping process from coordinating international routes to handling all customs and compliance details. With weekly sailings and end-to-end support, we take the complexity out of global shipping allowing you to focus on your business while we ensure your cargo arrives on time."
+                ctaLink="#"
+                ctaBtnLabel="CHECK OCEAN FREIGHT RATES"
+                slot="content">
+
+            </wc-slot-description>
+        </wc-duplex>
+
+        <wc-duplex
+            info="right"
+            title="The Smart Choice for Global Shipping"
+            motto="Why Choose GTNova for Ocean Freight?"
+            image="_services/_ocean_freight/images/ocean_img2.webp"
+            alt="The Smart Choice for Global Shipping"
+            content="">
+
+            <wc-slot-list
+                paragraph="Ocean freight is a cost-effective and efficient logistics solution ideal for managing large-scale and heavy shipments. By selecting GTNova’s ocean freight services, you benefit from a tailored approach designed to meet your specific business needs. Our comprehensive shipping network, secure processes and flexible options ensure that no matter the size or nature of your cargo, it’s handled with care and precision. We help you reach global markets seamlessly while keeping shipping costs manageable."
+                label1="Unmatched Affordability"
+                description1="We provide competitive pricing for bulk shipments offering maximum value for your logistics budget."
+                label2="Capacity for All Cargo Sizes"
+                description2="From oversized industrial goods to diverse containerized shipments, we manage it all with ease."
+                label3="Global Reach"
+                description3="Leverage our vast network of shipping routes to connect with markets worldwide."
+                label4="Sustainable Solutions"
+                description4="Our eco-conscious practices reduce emissions making your supply chain greener."
+                slot="content">
+
+            </wc-slot-list>
+
+        </wc-duplex>
+
+
+    </main>
+
+    <wc-signup-confirmation class="no-display" id="signup-confirmation"></wc-signup-confirmation>
+    <wc-loading id="loading" class="no-display"></wc-loading>
+    <wc-footer></wc-footer>
+
+</body>
+</html>
