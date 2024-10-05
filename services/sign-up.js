@@ -46,25 +46,6 @@ async function saveProfile(profile) {
     }
 }
 
-/*
-async function getNextCounter(){
-    const url = 'https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/counter';
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      }
-  
-      const jsonresponse = await response.json();
-      const body = JSON.parse(jsonresponse.body);
-      return body.next;
-
-    } catch (error) {
-      console.error(error.message);
-    }    
-}
-*/
-
 async function getAccountNumber() {
     const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/account-number`;
     try {
@@ -121,7 +102,7 @@ const validateProfile = (profile) => {
         errors.push("Please agree to the terms of service.");
     }
 
-    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const validRegex = /^[a-zA-Z0-9.!#$%&'*/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (!profile.email.match(validRegex)) {
         errors.push("Email address is not valid.");
     }
