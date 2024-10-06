@@ -89,7 +89,7 @@
 header {
   position: relative;
   box-shadow: 0 0 15px #808080a1;
-  z-index: 2;
+  z-index: 3;
 }
 
 @media (max-width:754px) {
