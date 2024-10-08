@@ -1,11 +1,14 @@
-import {evtHamburgerMenu} from "../../events/popup-menu.js";
 import {evtOpenSignUp} from "../../events/sign-up.js";
-
+import '../popup-menu.js';
 import "./menu-popups/services.js";
 
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
+
+        :host {
+            position: relative;
+        }
 
         .container {
             container-type: inline-size;
@@ -131,6 +134,8 @@ template.innerHTML = `
         </div>
     </section>
 
+    <wc-popup-menu id="popupMenu" class="no-display"></wc-popup-menu>
+
 `;
 
 class WcMainHeader extends HTMLElement {
@@ -201,7 +206,10 @@ class WcMainHeader extends HTMLElement {
 
     handleEvent(evt) {
         switch(evt.target.id){
-            case 'btnHamburger': document.dispatchEvent(evtHamburgerMenu.event); break;
+            case 'btnHamburger': {
+                this.#elements.get('popupMenu').open(); 
+                break;
+            }
             case 'btnSignup': document.dispatchEvent(evtOpenSignUp.event); break;
             case 'btnServices': this.handleBtnServices(evt); break;
         }

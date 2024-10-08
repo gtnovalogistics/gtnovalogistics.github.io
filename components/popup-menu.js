@@ -1,11 +1,9 @@
-import {evtHamburgerMenu} from "../events/popup-menu.js";
+import './popup-services.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
         :host {
-            background-color: var(--violet);
-
             text-decoration: none;
             font-family: helveticaneue;
             font-weight: 700;
@@ -18,6 +16,7 @@ template.innerHTML = `
             gap: 1rem;
             align-items: flex-end;
             padding: 2rem;
+            background-color: var(--violet);
         }       
 
         a {
@@ -30,12 +29,16 @@ template.innerHTML = `
             font-size: 1.5rem;
             color: var(--green);
         }
+
+        .no-display {
+            display: none;
+        }
     </style>
     
     <section>
-        <div class="close"><a href="#">X</div>
+        <div id="btnClose" class="close"><a href="#">X</div>
         <div><a href="under-construction">Search</a></div>
-        <div><a href="under-construction">Services</a></div>
+        <div><a href="#" id="btnServices">Services</a></div>
         <div><a href="aboutus">About Us</a></div>
         <div><a href="under-construction">Others</a></div>
         <div><a href="under-construction">Contact Us</a></div>          
@@ -50,13 +53,32 @@ class WcPopupMenu extends HTMLElement {
         shadow.appendChild(template.content.cloneNode(true));  
     }
 
-    handleEvent() {
-        document.dispatchEvent(evtHamburgerMenu.event);
+    handleEvent(evt) {
+        this.close();
+
+        if(evt.target.id === 'btnServices'){
+            const popUpServices = document.createElement('wc-popup-services');
+            this.getRootNode().host.parentElement.appendChild(popUpServices);
+        }
+
     }
 
     connectedCallback() {
-        this.shadowRoot.querySelector('.close').addEventListener('click', this);
+        this.shadowRoot.getElementById('btnClose').addEventListener('click', this);
+        this.shadowRoot.getElementById('btnServices').addEventListener('click', this);
 
+    }
+
+    open() {
+        if(this.classList.contains('no-display')) {
+            this.classList.remove('no-display');
+        }   
+    }
+
+    close() {
+        if(!this.classList.contains('no-display')) {
+            this.classList.add('no-display');
+        }
     }
 }
 

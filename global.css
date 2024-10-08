@@ -100,16 +100,6 @@ header {
 }
 
 /*------------*/
-/* popup menu */
-/*------------*/
-
-.popup-menu {
-  position: absolute;
-  width: 100vw;
-  z-index: 5;
-}
-
-/*------------*/
 /* cta button*/
 /*------------*/
 
