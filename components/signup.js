@@ -120,7 +120,7 @@ template.innerHTML = `
             font-family: helveticaneue;
             font-weight: 400;
             font-size: clamp(1rem,4vw,1.2rem);
-            padding: 1rem 0;
+            padding: 1rem;
             border-radius: 5px;
             border: 2px solid lightgray;
             
@@ -133,7 +133,7 @@ template.innerHTML = `
             line-height: 2rem;
             border-radius: 5px;
             border: 2px solid lightgray;   
-            padding: 0.9rem 0;      
+            padding: 0.9rem;      
          }
 
          .terms {
