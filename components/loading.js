@@ -40,10 +40,17 @@ template.innerHTML = `
             50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
             75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0    100%,0    100%)}
             100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0    100%,0    0   )}
-        }       
+        }  
+            
+        dialog {
+            background-color: transparent;
+            border: none;
+        }
     </style>
 
-    <div class="loader"></div>
+    <dialog>
+        <div class="loader"></div>
+    </dialog>
 
 `;
 
@@ -56,3 +63,20 @@ customElements.define('wc-loading', class  extends HTMLElement {
         shadow.appendChild(template.content.cloneNode(true));        
     }
 });
+
+let wc = null;
+const showLoading = () => {
+    wc = document.createElement('wc-loading');
+    document.body.appendChild(wc);
+    wc.shadowRoot.querySelector('dialog').showModal();
+}
+
+const hideLoading = () => {
+    if(wc){
+        const dlg = wc.shadowRoot.querySelector('dialog');
+        dlg.close();
+        dlg.getRootNode().host.remove();
+    }
+}
+
+export {showLoading, hideLoading};

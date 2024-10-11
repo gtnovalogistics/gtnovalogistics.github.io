@@ -6,6 +6,4 @@ import './handlers/sign-up.js';
 import './events/sign-up-confirmation.js';
 import './handlers/sign-up-confirmation.js';
 import './components/loading.js';
-import './events/loading.js';
-import './handlers/loading.js';
 import './components/footer/footer.js';

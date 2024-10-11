@@ -3,8 +3,8 @@ import {registerProfile, validateProfile} from "../services/sign-up.js";
 import {sendEmail} from "../services/send-email.js";
 import {userEmail} from "../services/user.js";
 import {evtOpenSignUpConfirmation} from "../events/sign-up-confirmation.js";
-import {evtLoading} from "../events/loading.js";
 import "./tc.js";
+import {showLoading, hideLoading} from "./loading.js";
 
 const renderCities = async () => {
     
@@ -160,10 +160,11 @@ template.innerHTML = `
                 color: inherit;
                 display: block;
                 
-                span{
+                div{
                     font-weight: 700;
                     color: var(--green);
-                }                
+                }   
+                               
             }
             
             input {
@@ -287,9 +288,10 @@ template.innerHTML = `
                     <label for="agree">
                         I agree to the 
                     </label>
-                    <a href="#" class="terms-link" id="termsLink">
-                        Terms and Conditions of<br/>
-                        <span>GTNova Freight and Logistics Inc.</span>
+                    <a class="terms-link" id="termsLink">
+                        Terms and Conditions of
+                        <br/>
+                        GTNova Freight and Logistics Inc.
                     </a>
                 </div>
 
@@ -412,11 +414,11 @@ class WcSignup extends HTMLElement {
             const errors = validateProfile(profile);
             if(errors.length > 0){
                 handleErrors(errors, this.#els.errors);
-                //evt.target.disabled = false;
                 return; 
             }
 
-            document.dispatchEvent(evtLoading.event);
+            //document.dispatchEvent(evtLoading.event);
+            showLoading();
 
             // prevent email duplication
             ////////////////////////////
@@ -425,7 +427,8 @@ class WcSignup extends HTMLElement {
             if(email.found === true){
                 handleErrors([`Email ${this.#els.form.email.value} already exists`], this.#els.errors);
                 //evt.target.disabled = false;
-                document.dispatchEvent(evtLoading.event);
+                //document.dispatchEvent(evtLoading.event);
+                hideLoading();
                 return;
             }
 
@@ -436,7 +439,8 @@ class WcSignup extends HTMLElement {
             this.cleanUp();
 
             //evt.target.disabled = false;
-            document.dispatchEvent(evtLoading.event);
+            //document.dispatchEvent(evtLoading.event);
+            hideLoading();
 
             // open the confirmation popup
             evtOpenSignUpConfirmation.detail = profile;

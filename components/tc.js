@@ -20,6 +20,10 @@ template.innerHTML = `
                 font-size: 2rem;
                 color: var(--violet);
             }
+
+            p {
+                line-height: 1.5rem;
+            }
             
             li {
                 margin-bottom: 0.5rem;
@@ -128,7 +132,7 @@ customElements.define('wc-tc', class extends HTMLElement {
 
     close(evt){
         this.getRootNode().getElementById('dlg').close();
-        this.getRootNode().host.remove;
+        this.getRootNode().host.remove();
     }
     connectedCallback() {
         this.shadowRoot.getElementById('btnClose').addEventListener('click', this.close);
