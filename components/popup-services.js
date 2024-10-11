@@ -61,6 +61,10 @@ customElements.define('wc-popup-services', class extends HTMLElement {
 
     }
 
+    disconnectedCallback() {
+        this.shadowRoot.querySelector('.close').removeEventListener('click', this);
+    }
+
     close() {
         this.parentElement.removeChild(this);
     }    
