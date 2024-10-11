@@ -156,9 +156,9 @@ template.innerHTML = `
             .terms-link {
                 line-height: clamp(1rem,4vw,1.5rem);
                 font-size: 1rem;
-                text-decoration: none;
                 color: inherit;
                 display: block;
+                text-decoration: underline;
                 
                 div{
                     font-weight: 700;
