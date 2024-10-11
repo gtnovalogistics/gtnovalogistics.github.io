@@ -4,6 +4,7 @@ import {sendEmail} from "../services/send-email.js";
 import {userEmail} from "../services/user.js";
 import {evtOpenSignUpConfirmation} from "../events/sign-up-confirmation.js";
 import {evtLoading} from "../events/loading.js";
+import "./tc.js";
 
 const renderCities = async () => {
     
@@ -143,20 +144,26 @@ template.innerHTML = `
             gap: 1rem;
 
             div {
-                display: flex;
-                align-items: flex-start;
-                gap: 0.5rem;
-                flex-grow: 1;
+                font-family: helveticaneue;
+                font-weight: 400;
             }
 
             label {
                 line-height: clamp(1rem,4vw,1.5rem);
-                font-size: clamp(1rem,4vw,1.2rem);
+                font-size: 1rem;
+            }
+
+            .terms-link {
+                line-height: clamp(1rem,4vw,1.5rem);
+                font-size: 1rem;
+                text-decoration: none;
+                color: inherit;
+                display: block;
                 
                 span{
                     font-weight: 700;
                     color: var(--green);
-                }
+                }                
             }
             
             input {
@@ -192,7 +199,7 @@ template.innerHTML = `
             <ul>
             </ul>
         </section>
-        <form>
+        <form id="form">
             <div class="adaptive"> 
                 <div>
                     <label for="firstname">*First Name</label>
@@ -278,9 +285,12 @@ template.innerHTML = `
                 <div>
                     <input type="checkbox" id="agree" name="agree" value="agree" required>
                     <label for="agree">
-                        I agree to the Terms of Service of<br/>
-                        <span>GTNova Freight and Logistics Inc.</span>
+                        I agree to the 
                     </label>
+                    <a href="#" class="terms-link" id="termsLink">
+                        Terms and Conditions of<br/>
+                        <span>GTNova Freight and Logistics Inc.</span>
+                    </a>
                 </div>
 
                 <button id="btnSubmit">SIGN UP</button>
@@ -359,12 +369,31 @@ class WcSignup extends HTMLElement {
 
     #els = {};
 
+    #getElementsWithId = () => {
+        const els = this.shadowRoot.querySelectorAll('*');
+        els.forEach(el => {
+            if(el.hasAttribute('id')){
+               this.#els[el.id] = el;
+            }
+        });
+    }
+
     cleanUp() {
-        clearErrors(this.#els.errorsSection);
+        clearErrors(this.#els.errors);
         closePopup(this.#els.form);
     }
 
+    showTerms() {
+        const tc = document.createElement('wc-tc');
+        document.body.appendChild(tc);
+        tc.showModal();
+    }
+
     async handleEvent(evt) {
+
+        if(evt.type === 'click' && evt.target.id === 'termsLink'){
+            this.showTerms();
+        }
 
         if(evt.type === 'click' && evt.target.id === 'btnClose'){
             this.cleanUp();
@@ -382,7 +411,7 @@ class WcSignup extends HTMLElement {
 
             const errors = validateProfile(profile);
             if(errors.length > 0){
-                handleErrors(errors, this.#els.errorsSection);
+                handleErrors(errors, this.#els.errors);
                 //evt.target.disabled = false;
                 return; 
             }
@@ -394,7 +423,7 @@ class WcSignup extends HTMLElement {
             
             const email = await userEmail(this.#els.form.email.value);
             if(email.found === true){
-                handleErrors([`Email ${this.#els.form.email.value} already exists`], this.#els.errorsSection);
+                handleErrors([`Email ${this.#els.form.email.value} already exists`], this.#els.errors);
                 //evt.target.disabled = false;
                 document.dispatchEvent(evtLoading.event);
                 return;
@@ -417,14 +446,18 @@ class WcSignup extends HTMLElement {
     }
 
     connectedCallback() {
+        /*
         this.#els.form = this.shadowRoot.querySelector('form');
         this.#els.errorsSection = this.shadowRoot.getElementById('errors');
+        this.#els.termsLink = this.shadowRoot.getElementById('termsLink');
+        */
+       this.#getElementsWithId();
 
-        this.shadowRoot.getElementById('btnClose')
-            .addEventListener('click', this);
+        this.#els.termsLink.addEventListener('click', this)
 
-        this.shadowRoot.getElementById('btnSubmit')
-            .addEventListener('click', this);
+        this.#els.btnClose.addEventListener('click', this);
+
+        this.#els.btnSubmit.addEventListener('click', this);
     }
 }
 
