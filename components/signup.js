@@ -1,6 +1,6 @@
 import {evtCloseSignUp} from "../events/sign-up.js";
 import {registerProfile, validateProfile} from "../services/sign-up.js";
-import {sendEmail} from "../services/send-email.js";
+import {sendEmail, sendTCEmail, sendWelcomeEmail} from "../services/send-email.js";
 import {userEmail} from "../services/user.js";
 import {evtOpenSignUpConfirmation} from "../events/sign-up-confirmation.js";
 import "./tc.js";
@@ -434,7 +434,9 @@ class WcSignup extends HTMLElement {
 
             await registerProfile(profile);
 
-            await sendEmail(profile.email, profile.accountnumber, `${profile.firstname} ${profile.lastname}`, profile.company);
+            const name = `${profile.firstname} ${profile.lastname}`;
+            await sendWelcomeEmail(profile.email, profile.accountnumber, name, profile.company);
+            await sendTCEmail(profile.email, profile.accountnumber, name);
             
             this.cleanUp();
 

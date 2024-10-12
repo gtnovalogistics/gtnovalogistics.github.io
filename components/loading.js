@@ -19,7 +19,7 @@ template.innerHTML = `
         }            
         
         .loader {
-        width: 60px;
+        width: 40px;
         aspect-ratio: 1;
         border: 15px solid #ddd;
         border-radius: 50%;
