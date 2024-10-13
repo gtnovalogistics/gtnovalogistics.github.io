@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GTNova Logistics</title>
+    <link rel="stylesheet" href="global.css" defer>
+
+    <script src="./script.js" type="module"></script>  
+
+    <style>
+        body {
+            font-family: poppins-light;
+            font-size: 18px;
+            
+        }
+
+        main {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            margin-bottom: 3rem;
+
+            background-image: url("images/logo_bg.webp");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .side {
+            padding: 0;
+        }
+        @media screen and (width < 820px) {
+            .side{
+                padding: 0 10px;
+            }
+        }
+
+        h1 {
+            font-family: helveticaneue;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .label {
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--violet);
+        }
+
+        .item {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 0.5rem;
+            align-items: center;
+        }
+
+        .itemgrid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            background-color: #efefef;
+
+            .label {
+                color: black;
+            }
+            
+            > div {
+                border: 1px solid var(--violet);
+                line-height: 2rem;
+                padding: 0 0.5rem;
+            }
+        }
+
+        .mb {
+            margin-bottom: 1rem;
+        }
+
+        .hmb {
+            margin-bottom: 0.5rem;
+        }
+
+        .f2 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .subscript {
+            font-size: 0.8rem;
+        }
+
+        ul {
+            font-size: 0.9rem;
+        }
+
+        .bgcolor {
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <wc-header></wc-header>
+    </header>
+
+    
+
+    <main class="side"><section>
+        <h1 class="mb">OCEAN FREIGHT DETAILS & RATES</h1>
+
+        <div class="item mb">
+            <div class="label">PORT OF LOADING : </div>
+            <div>Miami, Florida</div>
+        </div>
+
+        <div class="item mb">
+            <div class="label">PORT OF DISCHARGE : </div>
+            <div>Georgetown, Guyana</div>
+        </div>   
+
+        <div class="label mb">SHIPPING ADDRESS : </div>
+
+        <div class="subitem mb">
+            <h2>YOUR NAME (GEO Ocean)</h2>
+            <div class="itemgrid">
+                <div class="label">Address line 1 : </div>
+                <div>6555 Powerline Road, STE 206</div>
+                <div class="label">Address line 2 : </div>
+                <div>Mailbox Number</div>                        
+                <div class="label">City : </div>
+                <div>Ft Lauderdale</div>  
+                <div class="label">State : </div>
+                <div>Florida</div>                        
+                <div class="label">ZIP : </div>
+                <div>33309</div> 
+                <div class="label">Tel : </div>
+                <div>+1 (954) 652 1394</div>
+            </div>                    
+        </div>
+
+        <div class="label mb">WAREHOUSE/SHIPPING INQUIRIES CONTACT : </div>
+        <div class="subitem mb">
+            <h2>Tiffany Jarvis</h2>
+            <div class="itemgrid">
+                <div class="label">Email : </div>
+                <div>info@gtnovalogistics.com</div>
+                <div class="label">Tel : </div>
+                <div>+592 227 6975 | +592 667 4048</div>                        
+            </div>                    
+        </div>
+
+        <div class="item mb">
+            <div class="label">WAREHOUSE RECEIVING HOURS : </div>
+            <div>Monday through Friday from 9:00 a.m. to 5:00 p.m.</div>
+        </div>        
+
+        <div class="label mb">SAILING,CUTTING OFF & ESTIMATED TRANSIT TIME : </div>
+
+        <div class="mb">
+            <div>Vessel sails every Thursday</div>
+            <div>Cut off time: Tuesday at 12:00 pm (cargo + docs) Cut off for Hazmat – Monday at 12:00 pm</div>
+        </div>
+
+        <div class="label mb">LCL RATES (US$)</div>
+        <div class="mb">RATES MINIMUM INCLUSIVE OF BL FEE : </div>
+
+        <div class="f2 mb">
+            <div class="itemgrid">
+                <div class="label">0 - 1.5 cft</div> <div>$88.00</div>
+                <div class="label">1.6 - 5.5 cft</div> <div>$120.00</div>   
+                <div class="label">5.6 - 15.5 cft</div> <div>$143.00</div>
+                <div class="label">15.6 - 25.5 cft</div> <div>$160.00</div>
+                <div class="label">25.6 - 39.9 cft</div> <div>$175.00</div>                    
+            </div>
+            <div>
+                <div class="itemgrid hmb">
+                    <div class="label">10++CFT (Per CFT) </div> <div>$5.50 per cft</div>
+                    <div class="label">BL Fee</div> <div>$50</div>
+                </div>         
+                <div class="subscript hmb">OSVC (Operational Service variable charge) @0.21 per cft applicable.</div> 
+                <div class="subscript">Subject to $35 SED & Hazardous Fee (if applicable)</div>     
+            </div>
+        </div>
+
+        <div class="label mb">INSURANCE : </div>
+        <div class="mb">US$30.00 Minimum US$ 1.00 per $100 of CIF cargo value</div>
+
+        <hr class="mb">
+        <div class="label mb">Terms & Conditions : </div>
+        <ul>
+            <li>Rates quoted are subject to local charges at the origin and destination.</li>
+            <li>Rates apply to General cargo and may be different for Hazmat cargo.</li>
+            <li>Rates do not apply to overweight cargo, which can be quoted separately.</li>
+            <li>Subject to scheduled changes, space availability and other Carrier/Line changes.</li>
+            <li>Transit times may vary due to circumstances beyond GTNova’s control.</li>
+        </ul>
+        
+
+
+    </section></main>
+
+    <wc-signup class="no-display" id="signup"></wc-signup>
+    <wc-signup-confirmation class="no-display" id="signup-confirmation"></wc-signup-confirmation>
+    <wc-footer></wc-footer>
+
+</body>
+</html>

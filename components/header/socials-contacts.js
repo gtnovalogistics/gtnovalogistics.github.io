@@ -19,10 +19,16 @@ template.innerHTML = `
             background-color: var(--violet);
         } 
 
+        @media only screen and (width < 750px) {
+            wc-socials {
+                display: none;
+            } 
+        }
+
     </style>
     
     <div class="container">
-        <wc-socials></wc-socials>
+        <wc-socials ></wc-socials>
         <wc-contacts></wc-contacts>
     </div>
 `;

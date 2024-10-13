@@ -15,10 +15,16 @@ template.innerHTML = `
             margin-right: 3px;
         }
 
+        @media screen and (width < 540px) {
+            .email {
+                display: none;
+            }
+        }
+
     </style>
     
 
-    <div>
+    <div class="email">
         <img src="images/mail.webp" width="19" height="14" alt="email us">
         info@gtnovalogistics.com
     </div>

@@ -9,15 +9,7 @@ template.innerHTML = `
     
         }
 
-        @media only screen and (max-width: 698px) {
-            .socials-contacts {
-                display: none;
-            } 
-                
-            section {
-                padding-top: 1rem;
-            }
-        }
+
 
     </style>
     
