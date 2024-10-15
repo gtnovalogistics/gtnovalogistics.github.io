@@ -142,7 +142,7 @@ template.innerHTML = `
 
                 <div class="register">
                     <a href="#" id="btnRegister">Register</a>
-                    <a href="under-construction">View Rates</a>
+                    <a href="rates">View Rates</a>
                 </div>
             </div>
         </div>
