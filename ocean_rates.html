@@ -44,7 +44,7 @@
 
         h2 {
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.8rem;
         }
 
         .label {
@@ -63,17 +63,33 @@
         .itemgrid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            background-color: #efefef;
 
             .label {
                 color: black;
             }
             
             > div {
-                border: 1px solid var(--violet);
                 line-height: 2rem;
                 padding: 0 0.5rem;
             }
+        }
+
+        .subitem {
+            background-color: #efefef;
+            box-shadow: -5px -5px 50px gray;
+            padding: 1rem;
+        }
+
+        .border {
+            border: 1px solid #3b0978;
+
+            div {
+                border: 1px solid #3b0978;
+            }
+        }
+
+        .mb2 {
+            margin-bottom: 2rem;
         }
 
         .mb {
@@ -125,38 +141,38 @@
 
         <div class="label mb">SHIPPING ADDRESS : </div>
 
-        <div class="subitem mb">
+        <div class="subitem mb2">
             <h2>YOUR NAME (GEO Ocean)</h2>
             <div class="itemgrid">
                 <div class="label">Address line 1 : </div>
-                <div>6555 Powerline Road, STE 206</div>
+                <div>GTNOVA/Caribconex (GEO)​</div>
                 <div class="label">Address line 2 : </div>
-                <div>Mailbox Number</div>                        
+                <div>13155 NW 19th Lane  Mailbox # e.g. <b>GTNGYKKXX</b>​</div>                        
                 <div class="label">City : </div>
-                <div>Ft Lauderdale</div>  
+                <div>Doral</div>  
                 <div class="label">State : </div>
                 <div>Florida</div>                        
                 <div class="label">ZIP : </div>
-                <div>33309</div> 
+                <div>33182</div> 
                 <div class="label">Tel : </div>
-                <div>+1 (954) 652 1394</div>
+                <div>+1 305 705 6775</div>
             </div>                    
         </div>
 
         <div class="label mb">WAREHOUSE/SHIPPING INQUIRIES CONTACT : </div>
-        <div class="subitem mb">
-            <h2>Tiffany Jarvis</h2>
+        <div class="subitem mb2">
+            <h2><b>Deliese Best</b></h2>
             <div class="itemgrid">
                 <div class="label">Email : </div>
                 <div>info@gtnovalogistics.com</div>
                 <div class="label">Tel : </div>
-                <div>+592 227 6975 | +592 667 4048</div>                        
+                <div>+592 741 NOVA (6682) | +592 703</div>                        
             </div>                    
         </div>
 
         <div class="item mb">
             <div class="label">WAREHOUSE RECEIVING HOURS : </div>
-            <div>Monday through Friday from 9:00 a.m. to 5:00 p.m.</div>
+            <div>Monday from 9:00 a.m. to 5:00 p.m. and Tuesday through Friday from 8:30 a.m. to 4:30 p.m.</div>
         </div>        
 
         <div class="label mb">SAILING,CUTTING OFF & ESTIMATED TRANSIT TIME : </div>
@@ -170,20 +186,22 @@
         <div class="mb">RATES MINIMUM INCLUSIVE OF BL FEE : </div>
 
         <div class="f2 mb">
-            <div class="itemgrid">
-                <div class="label">0 - 1.5 cft</div> <div>$88.00</div>
-                <div class="label">1.6 - 5.5 cft</div> <div>$120.00</div>   
-                <div class="label">5.6 - 15.5 cft</div> <div>$143.00</div>
-                <div class="label">15.6 - 25.5 cft</div> <div>$160.00</div>
-                <div class="label">25.6 - 39.9 cft</div> <div>$175.00</div>                    
+            <div class="itemgrid border">
+                <div class="label">0 - 1.5 cft</div> <div>$80.00</div>
+                <div class="label">1.6 - 5 cft</div> <div>$100.00</div>   
+                <div class="label">6 - 15 cft</div> <div>$130.00</div>
+                <div class="label">16 - 25 cft</div> <div>$160.00</div>
+                <div class="label">26 - 40 cft</div> <div>$175.00</div>                    
             </div>
             <div>
-                <div class="itemgrid hmb">
-                    <div class="label">10++CFT (Per CFT) </div> <div>$5.50 per cft</div>
+                <div class="itemgrid hmb border">
+                    <div class="label">40+CFT (Per CFT) </div> <div>$6.50 per cft</div>
                     <div class="label">BL Fee</div> <div>$50</div>
                 </div>         
                 <div class="subscript hmb">OSVC (Operational Service variable charge) @0.21 per cft applicable.</div> 
-                <div class="subscript">Subject to $35 SED & Hazardous Fee (if applicable)</div>     
+                <div class="subscript">Subject to $35 SED & Hazardous Fee (if applicable)</div>
+                <div class="subscript">Crane charge 0.10 pr cft</div>   
+                <div class="subscript">Peak Season Surcharge .35/CFT OR .65/100LBS, MINIMUM $5​</div>  
             </div>
         </div>
 

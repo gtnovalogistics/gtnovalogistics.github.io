@@ -44,7 +44,7 @@
 
         h2 {
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.8rem;
         }
 
         .label {
@@ -63,18 +63,30 @@
         .itemgrid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            background-color: #efefef;
 
             .label {
                 color: black;
             }
             
             > div {
-                border: 1px solid var(--violet);
                 line-height: 2rem;
                 padding: 0 0.5rem;
             }
         }
+
+        .subitem {
+            background-color: #efefef;
+            box-shadow: -5px -5px 50px gray;
+            padding: 1rem;
+        }
+
+        .border {
+            border: 1px solid #3b0978;
+
+            div {
+                border: 1px solid #3b0978;
+            }
+        }        
 
         .mb {
             margin-bottom: 1rem;
@@ -131,47 +143,47 @@
             <h2>YOUR NAME (GEO Air)</h2>
             <div class="itemgrid">
                 <div class="label">Address line 1 : </div>
-                <div>6555 Powerline Road, STE 206</div>
+                <div>729 NW 1<sup>st</sup>st street </div>
                 <div class="label">Address line 2 : </div>
-                <div>Mailbox Number</div>                        
+                <div>Bay#2 Mailbox # e.g. GTNGYKKXX</div>                        
                 <div class="label">City : </div>
                 <div>Ft Lauderdale</div>  
                 <div class="label">State : </div>
                 <div>Florida</div>                        
                 <div class="label">ZIP : </div>
-                <div>33309</div> 
+                <div>33311</div> 
                 <div class="label">Tel : </div>
-                <div>+1 (954) 652 1394</div>
+                <div>+1 (754) 244 2071</div>
             </div>                    
         </div>
 
         <div class="label mb">WAREHOUSE/SHIPPING INQUIRIES CONTACT : </div>
         <div class="subitem mb">
-            <h2>Tiffany Jarvis</h2>
+            <h2>Deliese Best</h2>
             <div class="itemgrid">
                 <div class="label">Email : </div>
                 <div>info@gtnovalogistics.com</div>
                 <div class="label">Tel : </div>
-                <div>+592 227 6975 | +592 667 4048</div>                        
+                <div>+592 741 NOVA (6682) | +592 703 2132​</div>                        
             </div>                    
         </div>
 
         <div class="item mb">
             <div class="label">WAREHOUSE RECEIVING HOURS : </div>
-            <div>Monday through Friday from 9:00 a.m. to 5:00 p.m.</div>
+            <div>Monday through Friday from 8:00 a.m. to 4:30 p.m.</div>
         </div>        
 
         <div class="label mb">FLIGHTS, CUT OFF & ESTIMATED TRANSIT TIME : </div>
 
-        <div class="mb bgcolor">
-            <div>Flights are twice weekly, every Monday & Thursday Cut-off time: Friday at 5:00 pm and Tuesday</div>
-            <div>at 5:00 pm (cargo + docs) before the date of departure.</div>
+        <div class="subitem mb bgcolor">
+            <div>Flights are three times weekly, every Monday, Wednesday & Friday</div>
+            <div>Cut-off time: Friday at 4:30 pm, Monday at 4:30 pm and Wednesday 4:30pm (cargo + docs) before the date of departure​</div>
         </div>
 
         <div class="label mb">COURIER/AIR RATES (US$)</div>
 
 
-        <div class="itemgrid mb">
+        <div class="itemgrid mb border">
             <div class="label">1 - 25 lbs</div> <div>$3.90</div>
             <div class="label">26 lbs +</div> <div>$3.70</div>                      
         </div>
