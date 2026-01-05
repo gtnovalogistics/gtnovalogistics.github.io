@@ -86,7 +86,7 @@ template.innerHTML = `
 
     <section class="container">
 
-        <p> © 2024. GTNova Freight and Logistics Inc. All rights reserved.</p>
+        <p> © 2026. GTNova Freight and Logistics Inc. All rights reserved.</p>
         <div>
             <a href="https://www.facebook.com/profile.php?id=61566139545095&mibextid=LQQJ4d"> ${fbIcon}</a>
             <a href="https://www.instagram.com/gtnovalogistics?igsh=ODg0cjlkcW8xdG9q&utm_source=qr"> ${instaIcon} </a>
