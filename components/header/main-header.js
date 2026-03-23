@@ -125,7 +125,7 @@ template.innerHTML = `
             </li>
             <li><a href="aboutus">About Us <span>&#x276F;</span></a></li>
             <li><a href="under-construction">Others <span>&#x276F;</span></a></li>
-            <li><a href="under-construction">Contact Us</a></li>
+            <li><a href="contact_us">Contact Us</a></li>
         </menu>
         <div class="login-signup">
             <a href="under-construction" class="primary">LOGIN</a>
