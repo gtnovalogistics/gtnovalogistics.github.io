@@ -3,21 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTNova Logistics - Offices</title>
 
-    <title>GTNova Logistics</title>
     <link rel="stylesheet" href="global.css" defer>
 
     <script src="./script.js" type="module"></script>
-    
+
+    <style>
+        /* Contact Us Page Styles */
+        .offices-page {
+            padding: var(--padding-side);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .offices-page h1 {
+            font-family: poppins;
+            font-weight: 700;
+            color: var(--violet);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .office-row {
+            margin-bottom: 4rem;
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .office-row::after {
+            content: '';
+            display: block;
+            height: 1px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Remove divider for the last row */
+        .office-row:last-of-type::after {
+            display: none;
+        }
+
+        .office-row h2 {
+            font-family: poppins;
+            font-weight: 600;
+            color: var(--violet);
+            margin-bottom: 1rem;
+        }
+
+        .office-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .office-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        }
+
+        .office-address {
+            flex: 1 1 300px;
+            font-family: helveticaneue;
+        }
+
+        .office-address .contact-info {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .office-address .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .office-address .contact-info div:hover {
+            color: var(--violet);
+        }
+
+        .office-map {
+            flex: 1 1 400px;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .office-map:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            transform: translateY(-2px);
+        }
+
+        .reverse-row .office-content {
+            flex-direction: row-reverse;
+        }
+
+        /* Responsive: stack map and address vertically on small screens */
+        @media (max-width: 768px) {
+            .office-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .reverse-row .office-content {
+                flex-direction: column;
+            }
+
+            .office-map, .office-address {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <wc-header></wc-header>
     </header>
 
+    <main class="offices-page">
+        <h1>Offices</h1>
 
+        <!-- Guyana Office Row -->
+        <section class="office-row">
+            <h2>Guyana</h2>
+            <div class="office-content">
+                <div class="office-address">
+                    <div>GTNova Freight & Logistics Inc.</div>
+                    <div>125 ‘C’ Barrack Street, Kingston</div>
+                    <div>Georgetown, Guyana</div>
+                    <div class="contact-info">
+                        <div>
+                            <img src="images/icon_black_phone.webp" width="16" height="16" alt="call us">
+                            +592 741 NOVA (6682)/ +592 703 2132
+                        </div>
+                        <div>
+                            <img src="images/icon_black_envelope.webp" width="19" height="14" alt="email us">
+                            info@gtnovalogistics.com
+                        </div>
+                    </div>
+                </div>
+                <div class="office-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.143451215218!2d-58.1569409847172!3d6.800676495289406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c0aab0ef6b2a3db%3A0x94d53f8d1c8d3f95!2s125%20C%20Barrack%20St%2C%20Georgetown%2C%20Guyana!5e0!3m2!1sen!2sus!4v1696548400000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- US Office Row -->
+        <section class="office-row reverse-row">
+            <h2>United States</h2>
+            <div class="office-content">
+                <div class="office-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.550946800008!2d-80.14464438470647!3d26.144048983457167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d902f5a1c0d2b3%3A0x246b7a3a9d8f0c7!2s729%20NW%201st%20St%20Bay%20%232%2C%20Fort%20Lauderdale%2C%20FL%2033311%2C%20USA!5e0!3m2!1sen!2sus!4v1696548500000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="office-address">
+                    <div>GTNova Freight & Logistics FL LLC</div>
+                    <div>729 NW 1st Street Bay #2</div>
+                    <div>Fort Lauderdale, Florida 33311</div>
+                    <div>United States</div>
+                    <div class="contact-info">
+                        <div>
+                            <img src="images/icon_black_envelope.webp" width="19" height="14" alt="email us">
+                            flwarehouse@gtnovalogistics.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <wc-footer></wc-footer>
-
 </body>
 </html>
