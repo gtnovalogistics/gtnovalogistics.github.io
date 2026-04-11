@@ -98,7 +98,7 @@ template.innerHTML = `
                 <div class="contact-info">
                     <div>
                         <img src="images/icon_black_phone.webp" width="16" height="16" alt="call us">
-                        +592 741 NOVA (6682)/ +592 703 2132
+                        +1 844 741 NOVA (6682)/ +592 703 2132
                     </div>
                     <div>
                         <img src="images/icon_black_envelope.webp" width="19" height="14" alt="email us">
