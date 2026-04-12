@@ -31,7 +31,7 @@ template.innerHTML = `
 
     <div>
         <img src="images/phone.webp" width="16" height="16" alt="call us">
-        +1 844 741 NOVA (6682)/ +592 703. 2132
+        +592 741 NOVA (6682)/ +592 703. 2132
     </div>
 
 `;
