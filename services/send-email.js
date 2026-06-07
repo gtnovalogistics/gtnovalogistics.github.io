@@ -1,6 +1,6 @@
 const sendEmail = async (email, accountnumber, name, companyname) => {
 
-    const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/email?email=${email}&accountnumber=${accountnumber}&name=${name}&companyname=${companyname}`;
+    const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/email?email=${encodeURIComponent(email)}&accountnumber=${encodeURIComponent(accountnumber)}&name=${encodeURIComponent(name)}&companyname=${encodeURIComponent(companyname)}`;
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -14,8 +14,8 @@ const sendEmail = async (email, accountnumber, name, companyname) => {
 }
 
 const sendWelcomeEmail = async (email, accountnumber, name, companyname) => {
-
-  const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/email/welcome?email=${email}&accountnumber=${accountnumber}&name=${name}&companyname=${companyname}`;
+    
+  const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/email/welcome?email=${encodeURIComponent(email)}&accountnumber=${encodeURIComponent(accountnumber)}&name=${encodeURIComponent(name)}&companyname=${encodeURIComponent(companyname)}`;
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -30,7 +30,7 @@ const sendWelcomeEmail = async (email, accountnumber, name, companyname) => {
 
 const sendTCEmail = async (email, accountnumber, name, companyname) => {
 
-  const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/email/tc?email=${email}&accountnumber=${accountnumber}&name=${name}`;
+const url = `https://g7wrc6alrl.execute-api.ca-central-1.amazonaws.com/prod/email/tc?email=${encodeURIComponent(email)}&accountnumber=${encodeURIComponent(accountnumber)}&name=${encodeURIComponent(name)}`;
   try {
     const response = await fetch(url, {
       method: 'POST',
